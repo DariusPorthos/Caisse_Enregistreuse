@@ -1,0 +1,29 @@
+/* DEBUT PARTIE HEADER  */
+#container{
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+li {
+    width: 10%;
+}
+
+li a{
+    width: auto;
+}
+
+.li_gauche{
+    display: flex;
+    align-self: flex-end;
+}
+
+#droite{
+}
+
+#logoBDE{
+    width: 105px;
+    height: 104px;
+}
+
+/* FIN PARTIE HEADER  */
