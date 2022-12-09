@@ -7,7 +7,7 @@ class Model {
     private function __construct(){
         $this->bd = new PDO("pgsql:host=localhost;dbname=site", "", "");
         $this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $this->bd->query("SET charset Utf8");
+        $this->bd->query("SET charset utf-8");
     }
 
     public static function getModel(){
@@ -17,8 +17,25 @@ class Model {
         return self::$instance;
     }
 
+    /*
+     * cette fonction permet de verifier si le compte est dans la base de données
+     * paramêtres : identifiant et mot de passe
+     * return bool
+     */
     public function connexion($identifiant, $motDePasse){
-        return null;
+        $reqette = $this->bd->prepare("SELECT id_utilisateur, mdp from utilisateur where identifiant = ':identifiant'");
+        $reqette->bindValue(':identifiant', $identifiant);
+        $reqette->execute();
+        $tab = $reqette->fetch(PDO::FETCH_ASSOC);
+        $row = $reqette->rowCount();
+
+        if ($row == 1){
+            $motDePasseHash = crypt($motDePasse , "md5");
+            if(password_verify($tab["mdp"] , $motDePasseHash)){
+                return true;
+            }
+        return false;
+        }
     }
 
     public function consulterInventaire(){
@@ -58,7 +75,33 @@ class Model {
     }
 
     public function ajouterCompte($identifiant, $nom, $prenom, $mail, $motDePasse){
-        return null;
+        $requette = $this->bd->prepare("INSERT INTO utilisateur(identifiant, ) VALUES (:identifiant , :nom , :prenom, :mail, :motDePasse, :role)");
+        $role = 'utilisateur';
+
+        $requette->bindValue(':identifiant', $identifiant);
+        $requette->bindValue(':nom', $nom);
+        $requette->bindValue(':prenom', $prenom);
+        $requette->bindValue(':mail', $mail);
+
+        $motDePasseHash = crypt($motDePasse, 'md5');
+        $requette->bindValue(':motDePasse', $motDePasseHash);
+
+        $requette->bindValue(':role', $role);
+    }
+
+    public function ajoutCompteAdministrateur($identifiant, $nom, $prenom, $mail, $motDePasse){
+        $requette = $this->bd->prepare("INSERT INTO utilisateur(identifiant, ) VALUES (:identifiant , :nom , :prenom, :mail, :motDePasse, :role)");
+        $role = 'administrateur';
+
+        $requette->bindValue(':identifiant', $identifiant);
+        $requette->bindValue(':nom', $nom);
+        $requette->bindValue(':prenom', $prenom);
+        $requette->bindValue(':mail', $mail);
+
+        $motDePasseHash = crypt($motDePasse, 'md5');
+        $requette->bindValue(':motDePasse', $motDePasseHash);
+
+        $requette->bindValue(':role', $role);
     }
 
     public function infoCompte($identifiant){
