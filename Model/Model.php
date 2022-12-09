@@ -5,7 +5,7 @@ class Model {
     private static $instance = null;
 
     private function __construct(){
-        $this->bd = new PDO("pgsql:host=localhost;dbname=site", "site", "test");
+        $this->bd = new PDO("pgsql:host=localhost;dbname=site", "", "");
         $this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->bd->query("SET charset Utf8");
     }
@@ -15,6 +15,10 @@ class Model {
             self::$instance = new self();
         }
         return self::$instance;
+    }
+
+    public function connexion($identifiant, $motDePasse){
+        return null;
     }
 
     public function consulterInventaire(){
@@ -85,10 +89,5 @@ class Model {
         return null;
     }
 
-
-
-
-
 }
-
 ?>
