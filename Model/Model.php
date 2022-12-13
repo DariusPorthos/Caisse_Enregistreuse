@@ -5,9 +5,9 @@ class Model {
     private static $instance = null;
 
     private function __construct(){
-        $this->bd = new PDO("pgsql:host=localhost;dbname=site", "", "");
+        $this->bd = new PDO("pgsql:host=localhost;dbname=site", "site", "test");
         $this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $this->bd->query("SET charset utf-8");
+        $this->bd->query("SET nameS 'utf8'");
     }
 
     public static function getModel(){
@@ -75,33 +75,29 @@ class Model {
     }
 
     public function ajouterCompte($identifiant, $nom, $prenom, $mail, $motDePasse){
-        $requette = $this->bd->prepare("INSERT INTO utilisateur(identifiant, ) VALUES (:identifiant , :nom , :prenom, :mail, :motDePasse, :role)");
+        $requette = $this->bd->prepare("INSERT INTO utilisateur(identifiant, nom, prenom, mail, mdp, role) VALUES (:identifiant , :nom , :prenom, :mail, :motDePasse, :role)");
         $role = 'utilisateur';
-
-        $requette->bindValue(':identifiant', $identifiant);
-        $requette->bindValue(':nom', $nom);
-        $requette->bindValue(':prenom', $prenom);
-        $requette->bindValue(':mail', $mail);
-
         $motDePasseHash = crypt($motDePasse, 'md5');
-        $requette->bindValue(':motDePasse', $motDePasseHash);
-
-        $requette->bindValue(':role', $role);
+        $requette->execute(array(
+            'identifiant' => $identifiant ,
+            'nom' => $nom ,
+            'prenom' => $prenom ,
+            'mail' => $mail,
+            'motDePasse' => $motDePasseHash,
+            'role' => $role));
     }
 
     public function ajoutCompteAdministrateur($identifiant, $nom, $prenom, $mail, $motDePasse){
-        $requette = $this->bd->prepare("INSERT INTO utilisateur(identifiant, ) VALUES (:identifiant , :nom , :prenom, :mail, :motDePasse, :role)");
         $role = 'administrateur';
-
-        $requette->bindValue(':identifiant', $identifiant);
-        $requette->bindValue(':nom', $nom);
-        $requette->bindValue(':prenom', $prenom);
-        $requette->bindValue(':mail', $mail);
-
         $motDePasseHash = crypt($motDePasse, 'md5');
-        $requette->bindValue(':motDePasse', $motDePasseHash);
-
-        $requette->bindValue(':role', $role);
+        $requette = $this->bd->prepare("INSERT INTO utilisateur(id_utilisateur, nom, prenom, mail, mdp, role ) VALUES (:identifiant , :nom , :prenom, :mail, :motDePasse, :role)");
+        $requette->execute(array(
+            'identifiant' => $identifiant ,
+            'nom' => $nom ,
+            'prenom' => $prenom ,
+            'mail' => $mail,
+            'motDePasse' => $motDePasseHash,
+            'role' => $role));
     }
 
     public function infoCompte($identifiant){

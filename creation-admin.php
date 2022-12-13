@@ -14,7 +14,7 @@
 <body>
 <div style="border-radius: 12px; border: solid 1px black; text-align: center; padding: 10% 10%; width: 50%; margin: auto; margin-top: 10% ">
 <form action="Utils/creation_administrateur.php" method="post">
-    <label>Identifiant : <input name="identifiant" type="text"></label><br>
+    <label>Identifiant : <input name="identifiant" type="number"></label><br>
     <label>Nom : <input name="nom" type="text"></label><br>
     <label>Prenom : <input name="prenom" type="text"></label><br>
     <label>Mail : <input name="mail" type="email"></label><br>
