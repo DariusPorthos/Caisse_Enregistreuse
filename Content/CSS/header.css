@@ -1,29 +1,57 @@
-/* DEBUT PARTIE HEADER  */
-#container{
-    display: inline-flex;
-    flex-direction: row;
+body{
+    margin: 0;
+}
+
+/* ------------- DEBUT PARTIE HEADER ------------- */
+
+header{
+    background-color: rgb(226, 226, 226);
+    padding: 0.5%;
+}
+
+.container{
+    overflow:auto;  
+}
+
+/* Le logo */
+
+.logo img{
+    float:left;
+    height: 5%;
+    width: 5%;
+    margin-right: 1%;
+}
+
+/* La barre de navigation */
+
+.navigation ul{
+    display: inline;
+}   
+
+.menuL{
+    float: left;
+    padding-left: 0%;
+}
+
+.menuR{
+    float: right;
+}
+
+nav ul ul li{
+    display: inline-block;
+    padding: 15px;
+    font-size: 20px;
+}
+
+nav a{
+    text-decoration: none;
+}
+
+/* Les icônes de la barre de navigation */
+
+nav img{
+    height: 100%;
     width: 100%;
 }
 
-li {
-    width: 10%;
-}
-
-li a{
-    width: auto;
-}
-
-.li_gauche{
-    display: flex;
-    align-self: flex-end;
-}
-
-#droite{
-}
-
-#logoBDE{
-    width: 105px;
-    height: 104px;
-}
-
-/* FIN PARTIE HEADER  */
+/* ------------- FIN PARTIE HEADER ------------- */
