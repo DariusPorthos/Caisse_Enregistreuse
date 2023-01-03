@@ -5,7 +5,7 @@ class Model {
     private static $instance = null;
 
     private function __construct(){
-        $this->bd = new PDO("pgsql:host=localhost;dbname=site", "site", "test");
+        $this->bd = new PDO("pgsql:host=51.77.214.196;dbname=ubuntu", "ubuntu", "Andromeda");
         $this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->bd->query("SET nameS 'utf8'");
     }
@@ -98,6 +98,7 @@ class Model {
             'mail' => $mail,
             'motDePasse' => $motDePasseHash,
             'role' => $role));
+        return true;
     }
 
     public function infoCompte($identifiant){
