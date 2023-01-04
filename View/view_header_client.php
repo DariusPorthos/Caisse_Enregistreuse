@@ -1,13 +1,3 @@
-<!Doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../Content/CSS/header.css">
-    <link rel="shortcut icon" href="../Content/Images/Logo_bde">
-    <title>BDE USPN</title>
-</head>
-<body>
-
 <header>
     <div class="container">
         <!-- Logo -->
