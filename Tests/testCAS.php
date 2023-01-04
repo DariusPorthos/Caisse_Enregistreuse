@@ -5,9 +5,9 @@ $cas_host='cas.univ-paris13.fr';
 $cas_port=443;
 $cas_context='/cas/';
 
-require_once('phpCAS-1.3.6/CAS.php');
+require_once('phpCAS-1.3.6/source/CAS.php');
 
-phpCAS::client(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context);
+phpCAS::client(CAS_VERSION_1_0, $cas_host, $cas_port, $cas_context);
 phpCAS::setLang(PHPCAS_LANG_FRENCH);
 phpCAS::forceAuthentication();
 
