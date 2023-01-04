@@ -7,7 +7,7 @@ $cas_context='/cas/';
 
 require_once('phpCAS-1.3.6/source/CAS.php');
 
-phpCAS::client(CAS_VERSION_1_0, $cas_host, $cas_port, $cas_context);
+phpCAS::client(phpCAS::getVersion(), $cas_host, $cas_port, $cas_context);
 phpCAS::setLang(PHPCAS_LANG_FRENCH);
 phpCAS::forceAuthentication();
 
