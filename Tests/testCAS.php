@@ -5,7 +5,7 @@ $cas_host='cas.univ-paris13.fr';
 $cas_port=443;
 $cas_context='/cas/';
 
-require_once('phpcas-0.6.0-1/source/CAS.php');
+require_once('phpCAS-1.3.6/CAS.php');
 
 phpCAS::client(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context,'true');
 phpCAS::setNoCasServerValidation();
