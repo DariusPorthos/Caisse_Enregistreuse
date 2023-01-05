@@ -55,7 +55,7 @@ class Model {
 	public function enregistrementAchats($achats) {
     	// Préparez la requête d'insertion
     	//$stmt = $conn->prepare("INSERT INTO achats (nom, prix, quantite, date) VALUES ($_GET['nom'], $_GET['nom'], $_GET['nom'], $_GET['nom'])");
-    	$stmt->bind_param("sdss", $nom, $prix, $quantite, $date);
+    	//$stmt->bind_param("sdss", $nom, $prix, $quantite, $date);
 
     	// Affectez les valeurs aux paramètres
     	$nom = $achats->nom;
@@ -64,10 +64,11 @@ class Model {
     	$date = $achats->date;
 
     	// Exécutez la requête
-    	$stmt->execute();
+    	//$stmt->execute();
 
     	// Fermez la connexion à la base de données
-    	$conn->close();
+    	//$conn->close();
+		return null;
 }
 
 

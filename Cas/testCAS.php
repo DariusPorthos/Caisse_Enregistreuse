@@ -7,15 +7,15 @@ $cas_context='/cas/';
 
 require_once('phpCAS-1.3.6/source/CAS.php');
 
-phpCAS::client(phpCAS::getVersion(), $cas_host, $cas_port, $cas_context);
+phpCAS::client(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context);
+phpCAS::setNoCasServerValidation();
 phpCAS::setLang(PHPCAS_LANG_FRENCH);
 phpCAS::forceAuthentication();
 
-$attributs=phpCAS::getAttributes();
-$attributs['up13datenais']='caché';
-$attributs['up13datecreation']='caché';
+header("Location:../creation-admin.php");
 
 if(isset($_REQUEST['logout'])){
     phpCAS::logout();
 }
+
 ?>
