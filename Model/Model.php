@@ -55,7 +55,7 @@ class Model {
 	public function enregistrementAchats($achats) {
     	// Préparez la requête d'insertion
     	//$stmt = $conn->prepare("INSERT INTO achats (nom, prix, quantite, date) VALUES ($_GET['nom'], $_GET['nom'], $_GET['nom'], $_GET['nom'])");
-    	//$stmt->bind_param("sdss", $nom, $prix, $quantite, $date);
+    	$stmt->bind_param("sdss", $nom, $prix, $quantite, $date);
 
     	// Affectez les valeurs aux paramètres
     	$nom = $achats->nom;
@@ -64,11 +64,10 @@ class Model {
     	$date = $achats->date;
 
     	// Exécutez la requête
-    	//$stmt->execute();
+    	$stmt->execute();
 
     	// Fermez la connexion à la base de données
-    	//$conn->close();
-		return null;
+    	$conn->close();
 }
 
 
@@ -77,19 +76,23 @@ class Model {
 
 	}
 
-	public function consulterHistorique(){
-    	return null;
+	public function consulterHistorique($client){
+		$requette = $this->bd->prepare("SELECT * from historique_commande join client on  id_utilisateur = :id_utilisateur  ");
+		$reqette->bindValue(':id_utilisateur',$client);
+		$requette->execute();
+		return $requette->fetchall();
 	}
 
 	public function consulerPariteAchat(){
-		$reqette = $this->bd->prepare("SELECT * from  where id_article = :id_article  ");
-  	$reqette->execute();
-  	$tab = $reqette->fetch(PDO::FETCH_NUM);
+		$requette = $this->bd->prepare("SELECT * from historique_commande order by heure_achat,date_achat DESC LIMIT 20 ");
+  	$requette->execute();
+  	return $requette->fetchall();
     	;
 	}
 
-	public function estEnStock(){
+	public function estEnStock($article){
 		$reqette = $this->bd->prepare("SELECT nb_article from article where id_article = :id_article  ");
+		$reqette->bindValue(':id_article',$article);
   	$reqette->execute();
   	$tab = $reqette->fetch(PDO::FETCH_NUM);
 		if ($tab[0] > 0){
