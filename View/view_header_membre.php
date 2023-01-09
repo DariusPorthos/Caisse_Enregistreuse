@@ -12,7 +12,7 @@
     <div class="container">
         <!-- Logo -->
         <div class="logo">
-            <a href=""><img src="../Content/Images/Logo_bde" alt="Logo BDE"></a>
+            <a href=""><img src="../Content/Images/Logo_BDE_noir.png" alt="Logo BDE"></a>
         </div>
         <!-- Barre de navigation -->
         <nav>

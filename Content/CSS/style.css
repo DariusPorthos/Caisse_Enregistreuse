@@ -1,6 +1,7 @@
 :root{
     --bleu: #6eb6f3;
     --vert: #85ea81;
+    --bleu_fonce: #041C63;
 }
 
 
@@ -30,8 +31,8 @@ header{
 
 .logo img{
     float:left;
-    height: 5%;
-    width: 5%;
+    height: 75px;
+    width: 75px;
     margin-right: 1%;
     padding: 0.5%;
 }
@@ -45,7 +46,7 @@ header{
 .navigation ul li{
     display: inline-block;
     padding: 15px;
-    font-size: 20px;
+    font-size: 19px;
 }
 
 .navigation a{
@@ -59,7 +60,7 @@ header{
 }
 
 .menuL > li > a{
-    color: rgb(5,164,227);
+    color: white;
 }
 
 .menuL li ul li a{
@@ -79,7 +80,7 @@ header{
     display: none;
     flex-direction: column;
     padding: 5px 5px 1px 5px;
-    border-left: 2.5px solid rgb(5,164,227);
+    border-left: 2.5px solid var(--bleu_fonce);
 }
 
 .menuL li:hover ul{
@@ -93,7 +94,7 @@ header{
 }
 
 .menuL > li > ul > li:hover{
-    font-size: 21.5px;
+    font-size: 20.5px;
 }
 
 /* Partie droite de la barre de navigation */
@@ -106,6 +107,19 @@ header{
 .menuR img{
     height: 100%;
     width: 100%;
+}
+
+@media (max-width: 800px){
+    .navigation ul{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navigation{
+        display: flex;
+        justify-content: space-between;
+    }
+
 }
 
 /* ------------- FIN PARTIE HEADER ------------- */
@@ -130,6 +144,35 @@ header{
 }
 
 /* ------------- FIN PARTIE HOME ------------- */
+
+/* ------------- DEBUT PARTIE HISTORIQUE ------------- */
+
+#accueil{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+table{
+    background-color: white;
+    font-size: large;
+    width: 1000px;
+    transition: 0.5s;
+}
+
+@media (max-width:1020px){
+    table{
+        width: 500px;
+    }
+}
+
+table,th,td{
+    border-collapse: collapse;
+    border:1px solid #cccccc;
+    padding: 10px;
+}
+
+/* ------------- FIN PARTIE HISTORIQUE ------------- */
 
 /* ------------- DEBUT PARTIE FOOTER ------------- */
 
