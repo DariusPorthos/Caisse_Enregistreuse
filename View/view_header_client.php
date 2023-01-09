@@ -13,7 +13,7 @@
                         <a href="">Accueil</a>
                     </li>
                     <li style="padding-bottom: 2.6%">
-                        <a href="">Mes Achats</a>
+                        <a href=">">Mes Achats</a>
                     </li>
                 </ul>
                 <!-- Côté droit de la barre de navigation -->
