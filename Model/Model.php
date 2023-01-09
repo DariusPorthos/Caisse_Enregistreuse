@@ -87,7 +87,7 @@ class Model {
 		$requette = $this->bd->prepare("SELECT * from historique_commande order by heure_achat,date_achat DESC LIMIT 20 ");
   	$requette->execute();
   	return $requette->fetchall();
-    	;
+
 	}
 
 	public function estEnStock($article){
@@ -96,11 +96,13 @@ class Model {
   	$reqette->execute();
   	$tab = $reqette->fetch(PDO::FETCH_NUM);
 		if ($tab[0] > 0){
-			echo '<p>'. " l'article numero " . ':id_article' . 'est encore en stock ' . "</p>";
+			echo '<p>'. " l'article numero " . $article . ' est encore en stock ' . "</p>";
 		}
+		else{
+			echo '<p>'. " l'article numero " . $article . " n'est plus en stock " . "</p>";
+		}
+}
 
-    	;
-	}
 
 	public function ajouterArticle($article){
     	return null;
@@ -136,8 +138,11 @@ class Model {
         	'role' => $role));
 	}
 
-	public function infoCompte($identifiant){
-    	return null;
+	public function infoCompte($id_utilisateur){
+    $requette = $this->bd->prepare("SELECT * from client where id_utilisateur = :id_utilisateur");
+		$reqette->bindValue(':id_utilisateur',$id_utilisateur);
+    $requette->execute();
+    return $requette->fetchall();
 	}
 
 	public function supprimerCompte($identifiant){
