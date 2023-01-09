@@ -1,8 +1,18 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../Content/CSS/style.css">
+    <link rel="shortcut icon" href="../Content/Images/Logo_bde">
+    <title>BDE USPN</title>
+</head>
+<body>
+
 <header>
     <div class="container">
         <!-- Logo -->
         <div class="logo">
-            <a href=""><img src="../Content/Images/Logo_bde" alt="Logo BDE"></a>
+            <a href=""><img src="../Content/Images/Logo_BDE_noir.png" alt="Logo BDE"></a>
         </div>
         <!-- Barre de navigation -->
         <nav>

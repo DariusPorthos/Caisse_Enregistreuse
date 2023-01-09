@@ -2,6 +2,7 @@
     --bleu: #6eb6f3;
     --vert: #85ea81;
     --vert_clair: #c1f199;
+    --bleu_fonce: #041C63;
 }
 
 
@@ -32,8 +33,8 @@ header{
 
 .logo img{
     float:left;
-    height: 5%;
-    width: 5%;
+    height: 75px;
+    width: 75px;
     margin-right: 1%;
     padding: 0.5%;
 }
@@ -47,7 +48,7 @@ header{
 .navigation ul li{
     display: inline-block;
     padding: 15px;
-    font-size: 20px;
+    font-size: 19px;
 }
 
 .navigation a{
@@ -81,7 +82,7 @@ header{
     display: none;
     flex-direction: column;
     padding: 5px 5px 1px 5px;
-    border-left: 2.5px solid rgb(5,164,227);
+    border-left: 2.5px solid var(--bleu_fonce);
 }
 
 .menuL li:hover ul{
@@ -95,7 +96,7 @@ header{
 }
 
 .menuL > li > ul > li:hover{
-    font-size: 21.5px;
+    font-size: 20.5px;
 }
 
 /* Partie droite de la barre de navigation */
@@ -125,7 +126,6 @@ header{
 }
 
 .accueil .content span{
-    display: flex;
     font-size: 5rem;
     color:white;
     padding-left:50%;
@@ -146,19 +146,16 @@ footer{
     width : 100%;
     background: var(--bleu);
     color: #333;
-    justify-content: space-evenly;
 }
 
 .contenu-footer{
     width:1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: flex-start;
     font-size: 20px;
 }
-
-
 
 .footer-horaire h3, .footer-reseaux h3{
     font-size: 25px;
@@ -170,9 +167,9 @@ footer{
     padding-left: 0;
 }
 
-
-
-
+.footer-horaire{
+    margin-right: 100px;
+}
 
 .liste-media a{
     text-decoration: none;
@@ -208,7 +205,6 @@ footer{
 
 
 }
-
 
 @media screen and (max-width: 800px ){
     .contenu-footer{
