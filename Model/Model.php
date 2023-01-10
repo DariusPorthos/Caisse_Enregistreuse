@@ -16,7 +16,7 @@ class Model {
     	return self::$instance;
 	}
 
-	/*
+	/**
  	* cette fonction permet de verifier si le compte est dans la base de données
  	* paramêtres : identifiant et mot de passe
  	* return bool
@@ -42,7 +42,7 @@ class Model {
 		$requette->execute();
 		return $requette->fetchall();;
 	}
-	/*
+	/**
  	* cette fonction permet de calculer le montant des achats d’articles et retourne son prix total.
  	* return int
  	*/
@@ -93,6 +93,12 @@ class Model {
 
 	}
 
+	/**
+	 * Fonction a refaire
+	 * TODO
+	 * @param $article
+	 * @return void
+	 */
 	public function estEnStock($article){
 		$reqette = $this->bd->prepare("SELECT nb_article from article where id_article = :id_article  ");
 		$reqette->bindValue(':id_article',$article);
