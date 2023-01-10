@@ -38,7 +38,9 @@ class Model {
 	}
 
 	public function consulterInventaire(){
-    	return null;
+		$requette = $this->bd->prepare("SELECT * from article");
+		$requette->execute();
+		return $requette->fetchall();;
 	}
 	/*
  	* cette fonction permet de calculer le montant des achats d’articles et retourne son prix total.
@@ -76,11 +78,12 @@ class Model {
 
 	}
 
-	public function consulterHistorique($client){
-		$requette = $this->bd->prepare("SELECT * from historique_commande join client on  id_utilisateur = :id_utilisateur  ");
-		$reqette->bindValue(':id_utilisateur',$client);
+	public function consulterHistorique($id_utilisateur){
+		$requette = $this->bd->prepare("SELECT * from historique_commande join utilisateur on  utilisateur.id_utilisateur = :id_utilisateur  ");
+		$requette->bindValue(':id_utilisateur',$id_utilisateur);
 		$requette->execute();
 		return $requette->fetchall();
+
 	}
 
 	public function consulerPariteAchat(){
@@ -104,9 +107,23 @@ class Model {
 }
 
 
-	public function ajouterArticle($article){
-    	return null;
-	}
+public function ajouterArticle($donnee){
+       $req = $this->bd->prepare("INSERT INTO article(id_article,nom_article,prix,categorie,informations,nb_article) VALUES (:id_article,:nom_article,:prix,:categorie,:informations,:nb_article)");
+       $marks = ['id_article','nom_article','prix','categorie','informations','nb_article'];
+        foreach ($marks as $value) {
+            $req->bindValue(':' . $value, $donnee[$value]);
+        }
+        $req->execute();
+        return (bool) $req->rowCount();
+    }
+
+		public function ajouterArticle2($id_article,$nom_article,$prix,$informations){
+		       $requette = $this->bd->prepare("INSERT INTO article(id_article,nom_article,prix,informations) VALUES (:id_article,:nom_article,:prix,:informations)");
+		       $requette->execute(array(
+		           'id_article' => $id_article,
+		           'nom_article' => $nom_article,
+		           'prix' => $prix,
+		           'informations' => $informations));}
 
 	public function reduction(){
     	return null;
