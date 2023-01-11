@@ -15,6 +15,7 @@ CREATE TABLE "utilisateur" (
   "role" varchar,
   "date_creation" date,
   "date_connexion" date,
+  "points_fid" int
 PRIMARY KEY (id_utilisateur)
 );
 
