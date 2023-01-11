@@ -247,13 +247,22 @@ footer{
 
 /* ------------- DEBUT PARTIE COMMANDE ------------- */
 
-.step-container{
-    display: flex;
-    align-items: center;
+.commande{
+    display : flex;
     justify-content: center;
-    flex-wrap: wrap;
-    font-family: 'Arial Narrow Bold';
+    margin-bottom: 2%;
+
 }
+
+.categorie{
+    padding-left: 2%;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    margin-bottom: 15px;
+    align-items: flex-start;
 
 .step-container .step{
     background:var(--vert);
@@ -265,26 +274,60 @@ footer{
     flex:1 1 30rem;
 }
 
-.step-container .step img{
-    width: 100%;
-    height: 100%;
+.article{
+    background: var(--bleu);
+    width: 40%;
+    height: max-content;
+    border: black 1px solid;
+    border-radius: 2%;
 }
 
-.step-container .step h4{
-    font-size: 4rem;
-    color:var(--bleu);
-    font-family: 'Arial Narrow Bold';
+.article img{
+    background: white;
+    width: 20%;
+    height: auto;
 }
 
-.step-container .step h3{
-    font-size: 2rem;
-    color: black;
-    padding:1rem 0;
-    text-align: center;
+.article .poubelle{
+    color: white;
+    font-size: 5%;
 }
 
 
-.step-container .step h3 h3 p{
-    font-size: 1rem;
-    color:#666;
+.produit{
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.panier{
+    background: var(--bleu);
+    width: 20%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border: black 1px solid;
+    border-radius: 2%;
+}
+
+.panier div{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.total{
+    display: flex;
+    flex-direction: row;
 }
