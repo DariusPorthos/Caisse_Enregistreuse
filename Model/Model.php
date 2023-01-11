@@ -35,11 +35,9 @@ class Model {
     	$reqette->execute();
     	$tab = $reqette->fetch(PDO::FETCH_ASSOC);
     	$row = $reqette->rowCount();
-		echo "hello 1";
 
     	if ($row == 1){
         	$motDePasseHash = crypt($motDePasse , "md5");
-			echo "hello 2";
         	if(password_verify($tab["mdp"] , $motDePasseHash)){
             	return true;
         	}
@@ -167,25 +165,24 @@ public function ajouterArticle($donnee){
 	 * @param $motDePasse
 	 * @return void
 	 */
-	public function ajoutCompteAdministrateur($identifiant, $nom, $prenom, $mail, $motDePasse, $pf = 5){
+	public function ajoutCompteAdministrateur($identifiant, $nom, $prenom, $mail, $motDePasse){
     	$role = 'administrateur';
     	$motDePasseHash = crypt($motDePasse, 'md5');
-    	$requette = $this->bd->prepare("INSERT INTO utilisateur(id_utilisateur, nom, prenom, mail, mdp, role, point_fid ) VALUES (:identifiant , :nom , :prenom, :mail, :motDePasse, :role, :pointsFidel)");
+    	$requette = $this->bd->prepare("INSERT INTO utilisateur(id_utilisateur, nom, prenom, mail, mdp, role ) VALUES (:identifiant , :nom , :prenom, :mail, :motDePasse, :role)");
     	$requette->execute(array(
         	'identifiant' => $identifiant ,
         	'nom' => $nom ,
         	'prenom' => $prenom ,
         	'mail' => $mail,
         	'motDePasse' => $motDePasseHash,
-        	'role' => $role,
-			'pointsFidel' => $pf));
+        	'role' => $role));
 	}
 
 	public function infoCompte($id_utilisateur){
-    	$requette = $this->bd->prepare("SELECT * from client where id_utilisateur = :id_utilisateur");
-		$requette->bindValue(':id_utilisateur',$id_utilisateur);
-    	$requette->execute();
-    	return $requette->fetchall();
+    $requette = $this->bd->prepare("SELECT * from client where id_utilisateur = :id_utilisateur");
+		$reqette->bindValue(':id_utilisateur',$id_utilisateur);
+    $requette->execute();
+    return $requette->fetchall();
 	}
 
 	public function supprimerCompte($identifiant){
