@@ -67,7 +67,7 @@
         <img src="" alt="article1"/>
         <span>01</span>
         <h3>Article 1</h3>
-        <p>****</p>
+        <p>**********</p>
         <input type="submit" value="Ajouter" class="btn">
     </div>
     <!-- bloc article 6 ends-->
