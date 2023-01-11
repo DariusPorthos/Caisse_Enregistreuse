@@ -1,19 +1,4 @@
-<!Doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../Content/CSS/style.css">
-    <link rel="shortcut icon" href="../Content/Images/Logo_bde">
-    <title>BDE USPN</title>
-</head>
-
-<body>
-
-<!-- Header section start -->
-
-<header>
-    <?php require_once 'view_header_client.php';?>
-</header>
+<?php require_once 'view_header_client.php';?>
 
 <!-- Header section ends -->
 
@@ -27,3 +12,5 @@
 </section>
 
 <!--home section ends-->
+
+<?php require_once "view_end.php" ?>
