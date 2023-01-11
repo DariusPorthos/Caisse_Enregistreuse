@@ -13,7 +13,7 @@ else
 
 $nom_classe = 'Controller_' . $nom_controller;
 
-$nom_fichier = 'Controllers/' . $nom_classe . '.php';
+$nom_fichier = 'Controller/' . $nom_classe . '.php';
 
 if (is_readable($nom_fichier)){
     require_once $nom_fichier;

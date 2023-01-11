@@ -3,12 +3,19 @@ class Model {
 	private $bd;
 	private static $instance = null;
 
+	/**
+	 * Methode terminée, ne pas modifier
+	 */
 	private function __construct(){
-    	$this->bd = new PDO("pgsql:host=aquabdd;dbname=etudiants", "12106087", "081396888JA");
+    	$this->bd = new PDO("pgsql:host=51.77.214.196;dbname=ubuntu", "ubuntu", "Andromeda");
     	$this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     	$this->bd->query("SET nameS 'utf8'");
 	}
 
+	/**
+	 * Methode terminée, a ne pas modifier
+	 * @return Model|null
+	 */
 	public static function getModel(){
     	if (self::$instance == null){
         	self::$instance = new self();
@@ -17,6 +24,7 @@ class Model {
 	}
 
 	/**
+	 * Methode terminée, en phase de test, à ne pas modifier
  	* cette fonction permet de verifier si le compte est dans la base de données
  	* paramêtres : identifiant et mot de passe
  	* return bool
@@ -148,6 +156,15 @@ public function ajouterArticle($donnee){
         	'role' => $role));
 	}
 
+	/**
+	 * Methode terminée, à ne pas modifier, test reussi !
+	 * @param $identifiant
+	 * @param $nom
+	 * @param $prenom
+	 * @param $mail
+	 * @param $motDePasse
+	 * @return void
+	 */
 	public function ajoutCompteAdministrateur($identifiant, $nom, $prenom, $mail, $motDePasse){
     	$role = 'administrateur';
     	$motDePasseHash = crypt($motDePasse, 'md5');
