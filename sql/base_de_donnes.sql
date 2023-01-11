@@ -12,7 +12,6 @@ CREATE TABLE utilisateur(
     "mdp" VARCHAR(55) NULL,
     "role" VARCHAR(55) NULL,
     "date_creation" date,
-    "date_connexion" date,
     "point_fid" INTEGER NOT NULL
 );
 
