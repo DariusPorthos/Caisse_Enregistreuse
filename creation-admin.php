@@ -7,7 +7,6 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta property="og:title" content="Laravel - VEB APPLICATION">
 
 </head>
 

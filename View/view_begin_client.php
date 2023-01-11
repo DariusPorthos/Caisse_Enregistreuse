@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../Content/CSS/style.css">
-    <link rel="shortcut icon" href="../Content/Images/Logo_bde">
+    <link rel="stylesheet" href="Content/CSS/style.css">
+    <link rel="shortcut icon" href="Content/Images/Logo_bde">
     <title>BDE USPN</title>
 </head>
 

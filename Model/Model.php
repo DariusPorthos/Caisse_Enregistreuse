@@ -35,7 +35,6 @@ class Model {
     	$reqette->execute();
     	$tab = $reqette->fetch(PDO::FETCH_ASSOC);
     	$row = $reqette->rowCount();
-		echo "hello 1";
 
     	if ($row == 1){
         	$motDePasseHash = crypt($motDePasse , "md5");
@@ -93,7 +92,6 @@ class Model {
 		$requette->bindValue(':id_utilisateur',$id_utilisateur);
 		$requette->execute();
 		return $requette->fetchall();
-
 	}
 
 	public function consulerPariteAchat(){
