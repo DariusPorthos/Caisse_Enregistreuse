@@ -50,55 +50,51 @@ class Model {
 		$requette->execute();
 		return $requette->fetchall();;
 	}
+
 	/**
- 	* cette fonction permet de calculer le montant des achats d’articles et retourne son prix total.
- 	* return int
- 	*/
+	 * @return mixed
+	 */
 	public function calculAchat(){
-  	$reqette = $this->bd->prepare("SELECT SUM(prix) from article  ");
-  	$reqette->execute();
-  	$tab = $reqette->fetch(PDO::FETCH_NUM);
-  	return $tab['0'];
+  		$reqette = $this->bd->prepare("SELECT SUM(prix) from article  ");
+  		$reqette->execute();
+  		$tab = $reqette->fetch(PDO::FETCH_NUM);
+  		return $tab['0'];
   	}
 
 
 	public function enregistrementAchats($achats) {
     	// Préparez la requête d'insertion
     	//$stmt = $conn->prepare("INSERT INTO achats (nom, prix, quantite, date) VALUES ($_GET['nom'], $_GET['nom'], $_GET['nom'], $_GET['nom'])");
-    	$stmt->bind_param("sdss", $nom, $prix, $quantite, $date);
+    	//$stmt->bind_param("sdss", $nom, $prix, $quantite, $date);
 
     	// Affectez les valeurs aux paramètres
-    	$nom = $achats->nom;
-    	$prix = $achats->prix;
-    	$quantite = $achats->quantite;
-    	$date = $achats->date;
+    	//$nom = $achats->nom;
+    	//$prix = $achats->prix;
+    	//$quantite = $achats->quantite;
+    	//$date = $achats->date;
 
     	// Exécutez la requête
-    	$stmt->execute();
+    	//$stmt->execute();
 
     	// Fermez la connexion à la base de données
-    	$conn->close();
+    	//$conn->close();
 }
 
-
-
 	public function maxAchat(){
-
+		return null;
 	}
 
 	public function consulterHistorique($id_utilisateur){
 		$requette = $this->bd->prepare("SELECT * from historique_commande join utilisateur on  utilisateur.id_utilisateur = :id_utilisateur  ");
 		$requette->bindValue(':id_utilisateur',$id_utilisateur);
 		$requette->execute();
-		return $requette->fetchall();
-
+		return $requette->fetchall(PDO::FETCH_ASSOC);
 	}
 
 	public function consulerPariteAchat(){
 		$requette = $this->bd->prepare("SELECT * from historique_commande order by heure_achat,date_achat DESC LIMIT 20 ");
-  	$requette->execute();
-  	return $requette->fetchall();
-
+  		$requette->execute();
+  		return $requette->fetchall();
 	}
 
 	/**
@@ -110,8 +106,8 @@ class Model {
 	public function estEnStock($article){
 		$reqette = $this->bd->prepare("SELECT nb_article from article where id_article = :id_article  ");
 		$reqette->bindValue(':id_article',$article);
-  	$reqette->execute();
-  	$tab = $reqette->fetch(PDO::FETCH_NUM);
+  		$reqette->execute();
+  		$tab = $reqette->fetch(PDO::FETCH_NUM);
 		if ($tab[0] > 0){
 			echo '<p>'. " l'article numero " . $article . ' est encore en stock ' . "</p>";
 		}
@@ -121,23 +117,24 @@ class Model {
 }
 
 
-public function ajouterArticle($donnee){
-       $req = $this->bd->prepare("INSERT INTO article(id_article,nom_article,prix,categorie,informations,nb_article) VALUES (:id_article,:nom_article,:prix,:categorie,:informations,:nb_article)");
-       $marks = ['id_article','nom_article','prix','categorie','informations','nb_article'];
-        foreach ($marks as $value) {
-            $req->bindValue(':' . $value, $donnee[$value]);
-        }
-        $req->execute();
-        return (bool) $req->rowCount();
-    }
+	public function ajouterArticle($donnee){
+       	$req = $this->bd->prepare("INSERT INTO article(id_article,nom_article,prix,categorie,informations,nb_article) VALUES (:id_article,:nom_article,:prix,:categorie,:informations,:nb_article)");
+       	$marks = ['id_article','nom_article','prix','categorie','informations','nb_article'];
+        	foreach ($marks as $value) {
+            	$req->bindValue(':' . $value, $donnee[$value]);
+        	}
+        	$req->execute();
+        	return (bool) $req->rowCount();
+    	}
 
-		public function ajouterArticle2($id_article,$nom_article,$prix,$informations){
-		       $requette = $this->bd->prepare("INSERT INTO article(id_article,nom_article,prix,informations) VALUES (:id_article,:nom_article,:prix,:informations)");
-		       $requette->execute(array(
-		           'id_article' => $id_article,
-		           'nom_article' => $nom_article,
-		           'prix' => $prix,
-		           'informations' => $informations));}
+	public function ajouterArticle2($id_article,$nom_article,$prix,$informations){
+		$requette = $this->bd->prepare("INSERT INTO article(id_article,nom_article,prix,informations) VALUES (:id_article,:nom_article,:prix,:informations)");
+		$requette->execute(array(
+			'id_article' => $id_article,
+			'nom_article' => $nom_article,
+			'prix' => $prix,
+			'informations' => $informations));}
+
 
 	public function reduction(){
     	return null;
@@ -208,6 +205,5 @@ public function ajouterArticle($donnee){
 	public function fixerStockBas($idArticle, $minimum){
     	return null;
 	}
-
 }
 ?>
