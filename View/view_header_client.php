@@ -23,7 +23,7 @@
                         <a href="?controller=accueil&action=client">Accueil</a>
                     </li>
                     <li style="padding-bottom: 2.6%">
-                        <a href="?controller=historique&action=client">Mes Achats</a>
+                        <a href="?controller=historique&action=client&id=3">Mes Achats</a>
                     </li>
                 </ul>
                 <!-- Côté droit de la barre de navigation -->
