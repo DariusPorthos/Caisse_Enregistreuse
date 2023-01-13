@@ -311,8 +311,11 @@ class Model {
 		$requete2->execute();
 	}
 
-	public function rapprovisionnement($idArticle, $qte){
-    	return null;
+	public function reapprovisionnement($idArticle, $qte){
+		$requete = $this->bd->prepare("update article set nb_article = nb_article + :qte where id_article = :idArticle");
+		$requete->bindValue('idArticle', $idArticle);
+		$requete->bindValue('qte', $qte);
+		$requete->execute();
 	}
 
 	public function envoiNotification(){
