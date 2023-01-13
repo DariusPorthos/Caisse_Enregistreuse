@@ -38,12 +38,80 @@ class Model {
 
     	if ($row == 1){
         	$motDePasseHash = crypt($motDePasse , "md5");
-			echo "hello 2";
         	if(password_verify($tab["mdp"] , $motDePasseHash)){
             	return true;
         	}
     	return false;
     	}
+	}
+
+	public function getMotDePasse($identifiant){
+		$requette = $this->bd->prepare("SELECT mdp from utilisateur where id_utilisateur = :identifiant");
+		$requette->bindValue('identifiant', $identifiant);
+		$requette->execute();
+		$tableau = $requette->fetch(PDO::FETCH_NUM);
+		return $tableau[0];
+	}
+	public function getIdentifiant($nom){
+		$requette = $this->bd->prepare("SELECT id_utilisateur from utilisateur where nom = :nom");
+		$requette->bindValue('nom', $nom);
+		$requette->execute();
+		$tableau = $requette->fetch(PDO::FETCH_NUM);
+		return $tableau[0];
+	}
+	public function getNom($identifiant){
+		$requette = $this->bd->prepare("SELECT nom from utilisateur where id_utilisateur = :identifiant");
+		$requette->bindValue('identifiant', $identifiant);
+		$requette->execute();
+		$tableau = $requette->fetch(PDO::FETCH_NUM);
+		return $tableau[0];
+	}
+	public function getPrenom($identifiant){
+		$requette = $this->bd->prepare("SELECT prenom from utilisateur where id_utilisateur = :identifiant");
+		$requette->bindValue('identifiant', $identifiant);
+		$requette->execute();
+		$tableau = $requette->fetch(PDO::FETCH_NUM);
+		return $tableau[0];
+	}
+
+	public function getMail($identifiant){
+		$requette = $this->bd->prepare("SELECT mail from utilisateur where id_utilisateur = :identifiant");
+		$requette->bindValue('identifiant', $identifiant);
+		$requette->execute();
+		$tableau = $requette->fetch(PDO::FETCH_NUM);
+		return $tableau[0];
+	}
+
+	public function getRole($identifiant){
+		$requette = $this->bd->prepare("SELECT role from utilisateur where id_utilisateur = :identifiant");
+		$requette->bindValue('identifiant', $identifiant);
+		$requette->execute();
+		$tableau = $requette->fetch(PDO::FETCH_NUM);
+		return $tableau[0];
+	}
+
+	public function getDateCreation($identifiant){
+		$requette = $this->bd->prepare("SELECT date_creation from utilisateur where id_utilisateur = :identifiant");
+		$requette->bindValue('identifiant', $identifiant);
+		$requette->execute();
+		$tableau = $requette->fetch(PDO::FETCH_NUM);
+		return $tableau[0];
+	}
+
+	public function getDateConnexion($identifiant){
+		$requette = $this->bd->prepare("SELECT date_connexion from utilisateur where id_utilisateur = :identifiant");
+		$requette->bindValue('identifiant', $identifiant);
+		$requette->execute();
+		$tableau = $requette->fetch(PDO::FETCH_NUM);
+		return $tableau[0];
+	}
+
+	public function getPointsFid($identifiant){
+		$requette = $this->bd->prepare("SELECT point_fid from utilisateur where id_utilisateur = :identifiant");
+		$requette->bindValue('identifiant', $identifiant);
+		$requette->execute();
+		$tableau = $requette->fetch(PDO::FETCH_NUM);
+		return $tableau[0];
 	}
 
 	public function consulterInventaire(){
@@ -86,7 +154,7 @@ class Model {
 	}
 
 	public function consulterHistorique($id_utilisateur){
-		$requette = $this->bd->prepare("SELECT * from historique_commande join utilisateur on  utilisateur.id_utilisateur = :id_utilisateur  ");
+		$requette = $this->bd->prepare("SELECT * from historique_commande_util join utilisateur on  utilisateur.id_utilisateur = :id_utilisateur  ");
 		$requette->bindValue(':id_utilisateur',$id_utilisateur);
 		$requette->execute();
 		return $requette->fetchall(PDO::FETCH_ASSOC);
