@@ -297,7 +297,9 @@ class Model {
 	}
 
 	public function supprimerArticle($article){
-    	return null;
+		$requette = $this->bd->prepare("DELETE FROM article where id_article=:article");
+		$requette->bindValue('article', $article);
+		$requette->execute();
 	}
 
 	public function deleguerCompteAdmin($identifiant){
