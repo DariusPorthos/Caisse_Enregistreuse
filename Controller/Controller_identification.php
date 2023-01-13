@@ -11,8 +11,19 @@ class Controller_identification extends Controller{
             $identifiant = $_POST["identifiant"];
             if(password_verify($_POST["mdp"], $mdp)){
                 $_SESSION["connecte"]= true;
+                $_SESSION["identifiant"] = $identifiant;
                 $_SESSION["nom"]=$m->getNom($identifiant);
-                $this->render("accueil_client", $data);
+                $_SESSION["prenom"]=$m->getPrenom($identifiant);
+                $_SESSION["mail"]=$m->getMail($identifiant);
+                $_SESSION["role"]=$m->getRole($identifiant);
+                $_SESSION["date_creation"] = $m->getDateCreation($identifiant);
+                if($m->getRole($identifiant) == 'utilisateur'){
+                    $this->render("accueil_client", $data);
+                }elseif($m->getRole($identifiant) == 'administrateur'){
+                    $this->render("accueil_membre", $data);
+                }else{
+                    $_SESSION["Message"] = "Vous ne possedez pas de role, veuillez vous presenter au BDE pour contacter un administrateur";
+                }
             }
         }
         elseif (isset($_SESSION["connecte"]) && $_SESSION["connecte"]){
@@ -21,14 +32,30 @@ class Controller_identification extends Controller{
         else {
             $this->render("login", $data);
         }
+
         //    if($m->connexion($_POST["identifiant"], $_POST["mdp"])){
         //        $this->render("accueil_client", $data );
         //    }
         //}else{
         //    $_SESSION['message'] = "Veuillez remplir tous les champs";
-        //    die("Veuillez remplir tous les champs");
+        //
         //}
         //utiliser une fonction externe pour la connexion
+    }
+
+    public function action_signin(){
+        $m = Model::getModel();
+        $data = [];
+        if (isset($_POST["identifiant"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["mail"]) && isset($_POST["mdp"])){
+            $m->ajouterCompte($_POST["identifiant"], $_POST["nom"], $_POST["prenom"], $_POST["mail"], $_POST["mdp"]);
+            $this->render("accueil_client", $data);
+        }
+        elseif (isset($_SESSION["connecte"]) && $_SESSION["connecte"]){
+            $this->render("accueil_client" , $data);
+        }
+        else {
+            $this->render("signin", $data);
+        }
     }
 
     //public function createAccount(){

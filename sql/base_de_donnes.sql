@@ -45,9 +45,9 @@ ALTER TABLE
     "historique_commande_guest" ADD CONSTRAINT "historique_commande_guest_id_article_foreign" FOREIGN KEY("id_article") REFERENCES "article"("id_article");
 
 
-INSERT INTO utilisateur(id_utilisateur, nom, prenom,mail,mdp,role,date_creation,point_fid) VALUES (1, 'Kais', 'Hammache','kaishammache93200@gmail.com','123456789','admin','01-03-2004',15) ;
-INSERT INTO utilisateur(id_utilisateur, nom, prenom,mail,mdp,role,date_creation,point_fid) VALUES (2, 'Nayann', 'Andriamisa','nayn@gmail.com','nayann123','super-admin','03-11-2005',29) ;
-INSERT INTO utilisateur(id_utilisateur, nom, prenom,mail,mdp,role,date_creation,point_fid) VALUES (3, 'Jeff', 'efferson','jeffffff@gmail.com','010306','client','06-08-2018',19) ;
+INSERT INTO utilisateur(id_utilisateur, nom, prenom,mail,mdp,role,date_creation,point_fid) VALUES (10121314, 'Kais', 'Hammache','kaishammache93200@gmail.com','123456789','admin','01-03-2004',15) ;
+INSERT INTO utilisateur(id_utilisateur, nom, prenom,mail,mdp,role,date_creation,point_fid) VALUES (09101112, 'Nayann', 'Andriamisa','nayn@gmail.com','nayann123','super-admin','03-11-2005',29) ;
+INSERT INTO utilisateur(id_utilisateur, nom, prenom,mail,mdp,role,date_creation,point_fid) VALUES (08091011, 'Jeff', 'efferson','jeffffff@gmail.com','010306','client','06-08-2018',19) ;
 
 INSERT INTO article(id_article, nom_article, prix ,categorie,informations,nb_article) VALUES (1, 'Chips', 2.50,'snack','Chips gout nature',15) ;
 INSERT INTO article(id_article, nom_article, prix ,categorie,informations,nb_article) VALUES (2, 'Coca', 1.50,'boisson','Bouteille de Coca',20) ;
