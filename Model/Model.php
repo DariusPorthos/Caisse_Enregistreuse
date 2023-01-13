@@ -297,13 +297,18 @@ class Model {
 	}
 
 	public function supprimerArticle($article){
-		$requette = $this->bd->prepare("DELETE FROM article where id_article=:article");
-		$requette->bindValue('article', $article);
-		$requette->execute();
+		$requete = $this->bd->prepare("DELETE FROM article where id_article=:article");
+		$requete->bindValue('article', $article);
+		$requete->execute();
 	}
 
-	public function deleguerCompteAdmin($identifiant){
-    	return null;
+	public function deleguerCompteAdmin($idadmin,$iduser){
+		$requete1 = $this->bd->prepare("UPDATE utilisateur SET role = 'administrateur' WHERE id_utilisateur=:iduser");
+		$requete1->bindValue('iduser', $iduser);
+		$requete1->execute();
+		$requete2 = $this->bd->prepare("UPDATE utilisateur SET role = 'utilisateur' WHERE id_utilisateur=:idadmin");
+		$requete2->bindValue('idadmin', $idadmin);
+		$requete2->execute();
 	}
 
 	public function rapprovisionnement($idArticle, $qte){
