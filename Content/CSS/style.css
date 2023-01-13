@@ -134,6 +134,35 @@ header{
 
 /* ------------- FIN PARTIE HOME ------------- */
 
+/* ------------- DEBUT PARTIE HISTORIQUE ------------- */
+
+#accueil{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+table{
+    background-color: white;
+    font-size: large;
+    width: 1000px;
+    transition: 0.5s;
+}
+
+@media (max-width:1020px){
+    table{
+        width: 500px;
+    }
+}
+
+table,th,td{
+    border-collapse: collapse;
+    border:1px solid #cccccc;
+    padding: 10px;
+}
+
+/* ------------- FIN PARTIE HISTORIQUE ------------- */
+
 /* ------------- DEBUT PARTIE FOOTER ------------- */
 
 img{
