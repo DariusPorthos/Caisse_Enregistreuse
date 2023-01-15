@@ -247,6 +247,17 @@ footer{
 
 /* ------------- DEBUT PARTIE COMMANDE ------------- */
 
+.c{
+    background: url(../Images/accueil.jpg) no-repeat;
+    background-size: cover;
+    background-position : center;
+    background-attachment: fixed;
+    opacity:90%;
+
+}
+#titre-panier{
+    text-align: center;
+}
 .commande{
     display : flex;
     justify-content: center;
@@ -257,21 +268,12 @@ footer{
 .categorie{
     padding-left: 2%;
 }
-.container{
+.container {
     display: flex;
     flex-direction: row;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     margin-bottom: 15px;
     align-items: flex-start;
-
-.step-container .step{
-    background:var(--vert);
-    margin: 1rem;
-    padding: 2rem;
-    border-radius: .5rem;
-    box-shadow: 0 .5rem 1rem black;
-    text-align: center;
-    flex:1 1 30rem;
 }
 
 .article{
@@ -279,7 +281,7 @@ footer{
     width: 40%;
     height: max-content;
     border: black 1px solid;
-    border-radius: 2%;
+    border-radius:3px;
 }
 
 .article img{
@@ -311,14 +313,19 @@ footer{
 
 }
 
-.panier{
+.container2{
     background: var(--bleu);
     width: 20%;
     height: auto;
     display: flex;
     flex-direction: column;
     border: black 1px solid;
-    border-radius: 2%;
+    border-radius: 3px;
+
+}
+
+.tt{
+    border: black 1px solid;
 }
 
 .panier div{
@@ -327,7 +334,26 @@ footer{
     justify-content: space-around;
 }
 
+
 .total{
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.mode{
+    text-align: center;
+    margin-bottom: 4%;
+}
+
+#payer{
+    font-size: 120%;
+    color: white;
+    background: #041C63;
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+    border-radius: 3px;
+    border: #6eb6f3 solid 1px;
+    margin-bottom: 2%;
 }

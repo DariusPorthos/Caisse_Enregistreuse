@@ -9,12 +9,16 @@
 
 <body>
 
-<?php require_once "view_begin_client.php" ?>
+<?php require_once "view_header_client.php" ?>
+
+<section class="c">
+    <div class="commande">
+        <h1>Commande en cours</h1>
+    </div>
+</section>
 
 
-<div class="commande">
-    <h1>Commande en cours</h1>
-</div>
+
 
 <div class="container">
 
@@ -23,8 +27,8 @@
 
         <div class="produit">
             <img src="../Content/Images/cristaline.jpg">
-            <p class="p">Cristaline - 50cl </p>
-            <p><strong>0.50€</strong> </p>
+            <p class="nom_prod">Cristaline - 50cl </p>
+            <p class="prix_prod"><strong>0.50€</strong> </p>
 
             <label for="q">Quantité: </label>
             <select id="quantite" name="q" class="qt">
@@ -39,16 +43,15 @@
                 <option value="9">9</option>
             </select>
 
-            <button type="button" class="add-to-cart" data-id="432" data-name="Pastilles" data-price="29,00"
-                    data-weight="97" data-url="/produit/pastilles-anti-douleurs/">Ajouter au panier</button>
+            <input type="button" id="abc" value="Ajouter au panier"/>
         </div>
 
         <div class="column"><hr></div>
 
         <div class="produit">
             <img src="../Content/Images/caprisun.webp">
-            <p class="p">Capri Sun - 200ml</p>
-            <p><strong>0.50€</strong> </p>
+            <p class="nom_prod">Capri Sun - 200ml</p>
+            <p class="prix_prod"><strong>0.50€</strong> </p>
 
             <label for="q">Quantité: </label>
             <select id="quantite" name="q" class="qt">
@@ -63,16 +66,15 @@
                 <option value="9">9</option>
             </select>
 
-            <button type="button" class="add-to-cart" data-id="432" data-name="Pastilles" data-price="29,00"
-                    data-weight="97" data-url="/produit/pastilles-anti-douleurs/">Ajouter au panier</button>
+            <input type="button" id="abc" value="Ajouter au panier"/>
         </div>
 
         <div class="column"><hr></div>
 
         <div class="produit">
             <img src="../Content/Images/oasis_tropical.jpg">
-            <p class="p">Oasis Tropical - 33cl </p>
-            <p><strong>0.80€</strong> </p>
+            <p class="nom_prod">Oasis Tropical - 33cl </p>
+            <p class="prix_prod"><strong>0.80€</strong> </p>
 
             <label for="q">Quantité: </label>
             <select id="quantite" name="q" class="qt">
@@ -87,16 +89,15 @@
                 <option value="9">9</option>
             </select>
 
-            <button type="button" class="add-to-cart" data-id="432" data-name="Pastilles" data-price="29,00"
-                    data-weight="97" data-url="/produit/pastilles-anti-douleurs/">Ajouter au panier</button>
+            <input type="button" id="abc" value="Ajouter au panier"/>
         </div>
 
         <div class="column"><hr></div>
 
         <div class="produit">
             <img src="../Content/Images/oasis_pomme_cassis.jpg">
-            <p class="p">Oasis Pomme Cassis - 33cl </p>
-            <p><strong>0.80€</strong> </p>
+            <p class="nom_prod">Oasis Pomme Cassis - 33cl </p>
+            <p class="prix_prod"><strong>0.80€</strong> </p>
 
             <label for="q">Quantité: </label>
             <select id="quantite" name="q" class="qt">
@@ -111,16 +112,15 @@
                 <option value="9">9</option>
             </select>
 
-            <button type="button" class="add-to-cart" data-id="432" data-name="Pastilles" data-price="29,00"
-                    data-weight="97" data-url="/produit/pastilles-anti-douleurs/">Ajouter au panier</button>
+            <input type="button" id="abc" value="Ajouter au panier"/>
         </div>
 
         <div class="column"><hr></div>
 
         <div class="produit">
             <img src="../Content/Images/ice_tea.jpg">
-            <p class="p">Lipton Ice Tea - 33cl </p>
-            <p><strong>0.80€</strong> </p>
+            <p class="nom_prod">Lipton Ice Tea - 33cl </p>
+            <p class="prix_prod"><strong>0.80€</strong> </p>
 
             <label for="q">Quantité: </label>
             <select id="quantite" name="q" class="qt">
@@ -135,8 +135,7 @@
                 <option value="9">9</option>
             </select>
 
-            <button type="button" class="add-to-cart" data-id="432" data-name="Pastilles" data-price="29,00"
-                    data-weight="97" data-url="/produit/pastilles-anti-douleurs/">Ajouter au panier</button>
+            <input type="button" id="abc" value="Ajouter au panier"/>
         </div>
 
         <div class="column"><hr></div>
@@ -145,8 +144,8 @@
 
         <div class="produit">
             <img src="../Content/Images/coca.jpg">
-            <p class="p">Coca Cola - 33cl </p>
-            <p><strong>0.80€</strong> </p>
+            <p class="nom_prod">Coca Cola - 33cl </p>
+            <p class="prix_prod"><strong>0.80€</strong> </p>
 
             <label for="q">Quantité: </label>
             <select id="quantite" name="q" class="qt">
@@ -161,16 +160,15 @@
                 <option value="9">9</option>
             </select>
 
-            <button type="button" class="add-to-cart" data-id="432" data-name="Pastilles" data-price="29,00"
-                    data-weight="97" data-url="/produit/pastilles-anti-douleurs/">Ajouter au panier</button>
+            <input type="button" id="abc" value="Ajouter au panier"/>
         </div>
 
         <div class="column"><hr></div>
 
         <div class="produit">
             <img src="../Content/Images/coca_cherry.png">
-            <p class="p">Coca Cola Cherry - 33cl</p>
-            <p><strong>0.80€</strong> </p>
+            <p class="nom_prod">Coca Cola Cherry - 33cl</p>
+            <p class="prix_prod"><strong>0.80€</strong> </p>
 
             <label for="q">Quantité: </label>
             <select id="quantite" name="q" class="qt">
@@ -185,16 +183,15 @@
                 <option value="9">9</option>
             </select>
 
-            <button type="button" class="add-to-cart" data-id="432" data-name="Pastilles" data-price="29,00"
-                    data-weight="97" data-url="/produit/pastilles-anti-douleurs/">Ajouter au panier</button>
+            <input type="button" id="abc" value="Ajouter au panier"/>
         </div>
 
         <div class="column"><hr></div>
 
         <div class="produit">
             <img src="../Content/Images/fanta.webp.crdownload">
-            <p class="p">Fanta Citron - 33cl </p>
-            <p><strong>0.80€</strong> </p>
+            <p class="nom_prod">Fanta Citron - 33cl </p>
+            <p class="prix_prod"><strong>0.80€</strong> </p>
 
             <label for="q">Quantité: </label>
             <select id="quantite" name="q" class="qt">
@@ -209,8 +206,7 @@
                 <option value="9">9</option>
             </select>
 
-            <button type="button" class="add-to-cart" data-id="432" data-name="Pastilles" data-price="29,00"
-                    data-weight="97" data-url="/produit/pastilles-anti-douleurs/">Ajouter au panier</button>
+            <input type="button" id="abc" value="Ajouter au panier"/>
         </div>
 
         <div class="column"><hr></div>
@@ -219,8 +215,8 @@
 
         <div class="produit">
             <img src="../Content/Images/fraise.jpg">
-            <p class="p">Fraise - 50cl </p>
-            <p><strong>0.80€</strong> </p>
+            <p class="nom_prod">Fraise - 50cl </p>
+            <p class="prix_prod"><strong>0.80€</strong> </p>
 
             <label for="q">Quantité: </label>
             <select id="quantite" name="q" class="qt">
@@ -235,16 +231,15 @@
                 <option value="9">9</option>
             </select>
 
-            <button type="button" class="add-to-cart" data-id="432" data-name="Pastilles" data-price="29,00"
-                    data-weight="97" data-url="/produit/pastilles-anti-douleurs/">Ajouter au panier</button>
+            <input type="button" id="abc" value="Ajouter au panier"/>
         </div>
 
         <div class="column"><hr></div>
 
         <div class="produit">
             <img src="../Content/Images/peche.webp">
-            <p class="p">Pêche - 50cl </p>
-            <p><strong>0.80€</strong> </p>
+            <p class="nom_prod">Pêche - 50cl </p>
+            <p class="prix_prod"><strong>0.80€</strong> </p>
 
             <label for="q">Quantité: </label>
             <select id="quantite" name="q" class="qt">
@@ -259,16 +254,15 @@
                 <option value="9">9</option>
             </select>
 
-            <button type="button" class="add-to-cart" data-id="432" data-name="Pastilles" data-price="29,00"
-                    data-weight="97" data-url="/produit/pastilles-anti-douleurs/">Ajouter au panier</button>
+            <input type="button" id="abc" value="Ajouter au panier"/>
         </div>
 
         <div class="column"><hr></div>
 
         <div class="produit">
             <img src="../Content/Images/cassis.jpg">
-            <p class="p">Cassis - 50cl </p>
-            <p><strong>0.80€</strong> </p>
+            <p class="nom_prod">Cassis - 50cl </p>
+            <p class="prix_prod"><strong>0.80€</strong> </p>
 
             <label for="q">Quantité: </label>
             <select id="quantite" name="q" class="qt">
@@ -283,16 +277,15 @@
                 <option value="9">9</option>
             </select>
 
-            <button type="button" class="add-to-cart" data-id="432" data-name="Pastilles" data-price="29,00"
-                    data-weight="97" data-url="/produit/pastilles-anti-douleurs/">Ajouter au panier</button>
+            <input type="button" id="abc" value="Ajouter au panier"/>
         </div>
 
         <div class="column"><hr></div>
 
         <div class="produit">
             <img src="../Content/Images/pomme.jpg">
-            <p class="p">Pomme Verte - 50cl </p>
-            <p><strong>0.80€</strong> </p>
+            <p class="nom_prod">Pomme Verte - 50cl </p>
+            <p class="prix_prod"><strong>0.80€</strong> </p>
 
             <label for="q">Quantité: </label>
             <select id="quantite" name="q" class="qt">
@@ -307,16 +300,15 @@
                 <option value="9">9</option>
             </select>
 
-            <button type="button" class="add-to-cart" data-id="432" data-name="Pastilles" data-price="29,00"
-                    data-weight="97" data-url="/produit/pastilles-anti-douleurs/">Ajouter au panier</button>
+            <input type="button" id="abc" value="Ajouter au panier"/>
         </div>
 
         <div class="column"><hr></div>
 
         <div class="produit">
             <img src="../Content/Images/fruit_passion.png">
-            <p class="p">Fruit de la passion - 50cl </p>
-            <p><strong>0.80€</strong> </p>
+            <p class="nom_prod">Fruit de la passion - 50cl </p>
+            <p class="prix_prod"><strong>0.80€</strong> </p>
 
             <label for="q">Quantité: </label>
             <select id="quantite" name="q" class="qt">
@@ -331,43 +323,210 @@
                 <option value="9">9</option>
             </select>
 
-            <button type="button" class="add-to-cart" data-id="432" data-name="Pastilles" data-price="29,00"
-                    data-weight="97" data-url="/produit/pastilles-anti-douleurs/">Ajouter au panier</button>
+            <input type="button" id="abc" value="Ajouter au panier"/>
+        </div>
+
+        <div class="column"><hr></div>
+
+        <h3 class="categorie" id="snack"> Snack </h3>
+
+        <div class="produit">
+            <img src="../Content/Images/malabar.jpg">
+            <p class="nom_prod">Malabar </p>
+            <p class="prix_prod"><strong>0.70€</strong> </p>
+
+            <label for="q">Quantité: </label>
+            <select id="quantite" name="q" class="qt">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+
+            <input type="button" id="abc" value="Ajouter au panier"/>
+        </div>
+
+        <div class="column"><hr></div>
+        <div class="produit">
+            <img src="../Content/Images/lays_nature.png">
+            <p class="nom_prod">Lays Nature </p>
+            <p class="prix_prod"><strong>0.60€</strong> </p>
+
+            <label for="q">Quantité: </label>
+            <select id="quantite" name="q" class="qt">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+
+            <input type="button" id="abc" value="Ajouter au panier"/>
+        </div>
+
+        <div class="column"><hr></div>
+        <div class="produit">
+            <img src="../Content/Images/lays_bbq.jpg">
+            <p class="nom_prod">Lays Barbecue </p>
+            <p class="prix_prod"><strong>0.70€</strong> </p>
+
+            <label for="q">Quantité: </label>
+            <select id="quantite" name="q" class="qt">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+
+            <input type="button" id="abc" value="Ajouter au panier"/>
+        </div>
+
+        <div class="column"><hr></div>
+        <div class="produit">
+            <img src="../Content/Images/mars.webp">
+            <p class="nom_prod">Mars </p>
+            <p class="prix_prod"><strong>0.70€</strong> </p>
+
+            <label for="q">Quantité: </label>
+            <select id="quantite" name="q" class="qt">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+
+            <input type="button" id="abc" value="Ajouter au panier"/>
+        </div>
+
+        <div class="column"><hr></div>
+        <div class="produit">
+            <img src="../Content/Images/kitkat.jpg">
+            <p class="nom_prod">Kit Kat </p>
+            <p class="prix_prod"><strong>0.70€</strong> </p>
+
+            <label for="q">Quantité: </label>
+            <select id="quantite" name="q" class="qt">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+
+            <input type="button" id="abc" value="Ajouter au panier"/>
+        </div>
+
+        <div class="column"><hr></div>
+        <div class="produit">
+            <img src="../Content/Images/kinderbueno.jpg">
+            <p class="nom_prod">Kinder Bueno</p>
+            <p class="prix_prod"><strong>0.80€</strong> </p>
+
+            <label for="q">Quantité: </label>
+            <select id="quantite" name="q" class="qt">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+
+            <input type="button" id="abc" value="Ajouter au panier"/>
+        </div>
+
+        <div class="column"><hr></div>
+        <div class="produit">
+            <img src="../Content/Images/kinderbueno_white.jpg">
+            <p class="nom_prod">Kinder Bueno White </p>
+            <p class="prix_prod"><strong>0.80€</strong> </p>
+
+            <label for="q">Quantité: </label>
+            <select id="quantite" name="q" class="qt">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+
+            <input type="button" id="abc" value="Ajouter au panier"/>
         </div>
 
         <div class="column"><hr></div>
 
 
+    </div>
+
+    <div class="container2">
+        <div class="panier">
+            <h3 class="categorie" id="titre-panier">Panier</h3>
+            <hr>
+        </div>
+
+        <div class="tt">
+            <h3 style="text-align: center">Total</h3><br>
+            <div class="total">
+                <p class="pt">Prix total :</p><p class="inserer"></p><p>&euro;</p>
+            </div>
+
+            <div class="mode">
+                    <h3 style="text-align: center"> Mode de paiement :</h3>
+                <div>
+                    <input type="radio" id="choix" value="mode1"/> <label>CB</label>
+                    <input type="radio" id="choix" value="mode2"/> <label>Espèces</label>
+                </div>
+            </div>
+
+            <div class="valider">
+                <input type="button" id="payer" value="Valider la commande"/>
+            </div>
+
+        </div>
+
+
+
 
     </div>
 
-    <div class="panier">
-        <div class="prix1">
-            <p class="n"></p>
-
-        </div>
-        <div>
-            <p>Produit  &ensp;2</p>
-
-        </div>
-        <div>
-            <p>Produit &ensp; 3</p>
-
-        </div>
-        <div>
-            <p>Produit &ensp; 4</p>
-
-        </div>
-        <hr>
-        <div class="total">
-            <p>Total</p>
-            <p>Prix total &euro;</p>
-        </div>
-    </div>
 
 </div>
 
-</section>
 
+<script src="../Content/JS/script.js"></script>
+
+</body>
+
+<?php require_once 'view_end.php'?>
 
 
