@@ -96,7 +96,7 @@ header{
 }
 
 .menuL > li > ul > li:hover{
-    font-size: 20.5px;
+    font-size: 20px;
 }
 
 /* Partie droite de la barre de navigation */
@@ -136,6 +136,11 @@ header{
 
 /* ------------- DEBUT PARTIE HISTORIQUE ------------- */
 
+.titre{
+    text-align: center;
+    font-size: 20px;
+}
+
 #accueil{
     display: flex;
     justify-content: center;
@@ -162,6 +167,36 @@ table,th,td{
 }
 
 /* ------------- FIN PARTIE HISTORIQUE ------------- */
+
+/* ------------- DEBUT PARTIE HISTORIQUE ------------- */
+
+#accueil{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+table{
+    background-color: white;
+    font-size: large;
+    width: 1000px;
+    transition: 0.5s;
+}
+
+@media (max-width:1020px){
+    table{
+        width: 500px;
+    }
+}
+
+table,th,td{
+    border-collapse: collapse;
+    border:1px solid #cccccc;
+    padding: 10px;
+}
+
+/* ------------- FIN PARTIE HISTORIQUE ------------- */
+
 
 /* ------------- DEBUT PARTIE FOOTER ------------- */
 
@@ -288,3 +323,76 @@ footer{
     font-size: 1rem;
     color:#666;
 }
+
+/*-------------------- DEBUT PARTIE LOGIN -------------------- */
+
+
+#container_login{
+    background-color: var(--bleu);
+    display: flex;
+    justify-content: center;
+    height: 120px;
+    position: relative;
+}
+
+#logo_login{
+    display: flex;
+    align-items: center;
+}
+
+#accueil_form{
+    justify-content: center;
+}
+
+
+.login_title{
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.identification{
+    background-color: var(--vert_clair);
+    opacity: 0.95;
+    padding: 20px;
+    border-radius: 30px;
+    width: 40%;
+}
+
+.formulaire{
+    padding: 50px;
+    text-align: center;
+}
+
+.formulaire label{
+    font-size: 25px;
+    margin: 50px;
+}
+
+.formulaire span{
+    font-size: 15px;
+}
+
+.input_login{
+    width: 300px;
+    height: 30px;
+    border-radius: 20px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 0 10px 0 20px;
+    font-size: 15px;
+}
+
+.submit_login{
+    padding: 8px;
+    margin: 10px;
+    background-color: var(--bleu);
+    border: 0;
+    border-radius: 20px;
+    width: 200px;
+}
+
+.submit_login:hover{
+    background-color: #3d75a8;
+}
+
+/*-------------------- FIN PARTIE LOGIN -------------------- */
