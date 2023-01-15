@@ -49,6 +49,9 @@
                     <li style="padding-bottom: 2.6%">
                         <a href="">Gestion des comptes</a>
                     </li>
+                    <?php if( isset($_SESSION['connecte']) && $_SESSION['connecte'] !== null ) : ?>
+                        <li id="droite"><a href="?logout=1">Se déconnecter</a></li>
+                    <?php endif;?>
                 </ul>
                 <!-- Côté droit de la barre de navigation -->
                 <ul class="menuR">

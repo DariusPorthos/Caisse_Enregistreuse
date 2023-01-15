@@ -17,6 +17,7 @@ class Controller_identification extends Controller{
                 $_SESSION["mail"]=$m->getMail($identifiant);
                 $_SESSION["role"]=$m->getRole($identifiant);
                 $_SESSION["date_creation"] = $m->getDateCreation($identifiant);
+                $_SESSION["date_connexion"] = $m->getDateConnexion($identifiant);
                 if($m->getRole($identifiant) == 'utilisateur'){
                     $this->render("accueil_client", $data);
                 }elseif($m->getRole($identifiant) == 'administrateur'){
@@ -27,7 +28,12 @@ class Controller_identification extends Controller{
             }
         }
         elseif (isset($_SESSION["connecte"]) && $_SESSION["connecte"]){
-            $this->render("accueil_client" , $data);
+            $identifiant = $_SESSION["identifiant"];
+            if($m->getRole($identifiant) == 'utilisateur'){
+                $this->render("accueil_client", $data);
+            }elseif($m->getRole($identifiant) == 'administrateur') {
+                $this->render("accueil_membre", $data);
+            }
         }
         else {
             $this->render("login", $data);
@@ -48,6 +54,7 @@ class Controller_identification extends Controller{
         $data = [];
         if (isset($_POST["identifiant"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["mail"]) && isset($_POST["mdp"])){
             $m->ajouterCompte($_POST["identifiant"], $_POST["nom"], $_POST["prenom"], $_POST["mail"], $_POST["mdp"]);
+            //ajouter la date de création
             $this->render("accueil_client", $data);
         }
         elseif (isset($_SESSION["connecte"]) && $_SESSION["connecte"]){
@@ -55,6 +62,10 @@ class Controller_identification extends Controller{
         }
         else {
             $this->render("signin", $data);
+        }
+
+        if( isset($_GET['logout']) && $_GET['logout'] == 1 ) {
+            session_destroy();
         }
     }
 
