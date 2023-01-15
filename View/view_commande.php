@@ -11,16 +11,13 @@
 
 <?php require_once "view_header_client.php" ?>
 
-<section class="c">
-    <div class="commande">
-        <h1>Commande en cours</h1>
-    </div>
-</section>
+
+<div class="titre">
+    <h1>Commande en cours</h1>
+</div>
 
 
-
-
-<div class="container">
+<div class="bloc">
 
     <div class="article">
         <h3 class="categorie" id="boisson">Boissons</h3>
@@ -483,7 +480,7 @@
             <input type="button" id="abc" value="Ajouter au panier"/>
         </div>
 
-        <div class="column"><hr></div>
+
 
 
     </div>
@@ -495,16 +492,26 @@
         </div>
 
         <div class="tt">
+            <h3 style="text-align: center">Réduction :</h3><br>
+
+            <div class="reduc">
+                <label>Points : </label><input type="number" id="r" value="reduction" name="r" min="0" max="1000"/>
+
+            </div>
+
             <h3 style="text-align: center">Total</h3><br>
+
             <div class="total">
                 <p class="pt">Prix total :</p><p class="inserer"></p><p>&euro;</p>
             </div>
 
+
+
             <div class="mode">
                     <h3 style="text-align: center"> Mode de paiement :</h3>
                 <div>
-                    <input type="radio" id="choix" value="mode1"/> <label>CB</label>
-                    <input type="radio" id="choix" value="mode2"/> <label>Espèces</label>
+                    <input type="radio" id="choix" value="mode1" name="mode" checked/> <label>CB</label>
+                    <input type="radio" id="choix" value="mode2" name="mode" /> <label>Espèces</label>
                 </div>
             </div>
 
@@ -517,6 +524,8 @@
 
 
 
+
+
     </div>
 
 
@@ -524,6 +533,7 @@
 
 
 <script src="../Content/JS/script.js"></script>
+
 
 </body>
 

@@ -1,9 +1,13 @@
 let b=document.querySelectorAll("#abc");
 let valider= document.getElementById('payer')
+let panier=document.querySelector('.panier');
+
+
+
+/*------------------------------------EVENT---------------------------------------*/
 
 for(let i=0;i<b.length;i++){
     b[i].addEventListener('click',function (){
-        console.log("click");
         let p=document.querySelectorAll(".prix_prod");
         let prix=p[i].textContent;
         let n=document.querySelectorAll(".nom_prod");
@@ -16,11 +20,26 @@ for(let i=0;i<b.length;i++){
 }
 
 valider.addEventListener('click',function (){
-   vider_panier();
+    let liste=document.querySelectorAll('.elt');
+    for (let i=0;i<liste.length;i++){
+        liste[i].remove();
+    }
+    let inserer=document.querySelector(".inserer");
+    inserer.textContent="";
+
 });
 
+panier.addEventListener('click',function(e){
+    const target=e.target.closest(".supp");
+    if (target){
+        target.parentNode.remove();
+    }
+    calcul_total();
+})
 
 
+
+/* ---------------------------------FONCTIONS------------------------------------------------*/
 
 function ajouter_article(nom_article,prix_article,quantite_article){
     let div=document.createElement('div');
@@ -30,12 +49,19 @@ function ajouter_article(nom_article,prix_article,quantite_article){
     p_prix.className="p_ticket";
     let p_quantite=document.createElement('p');
     p_quantite.className="q_ticket";
+    let p_p=document.createElement('p');
+    p_p.className="supp";
+    if(nom_article.length>17){
+        nom_article=nom_article.substring(0,17);
+    }
+    p_p.textContent="❌";
     p_article.textContent=nom_article;
     p_prix.textContent=prix_article;
     p_quantite.textContent=quantite_article;
     div.append(p_article);
     div.append(p_prix);
     div.append(p_quantite);
+    div.append(p_p);
     let bloc=document.querySelector(".panier");
     bloc.append(div);
 }
@@ -49,11 +75,9 @@ function calcul_total(){
         res+=nb[i].textContent.substring(0,4)*q[i].textContent;
     }
     let inserer=document.querySelector(".inserer");
-    inserer.textContent=res;
+    inserer.textContent=Math.round(res * 100) / 100;
 }
 
-function vider_panier(){
-    let liste_achat=document.querySelectorAll('.')
-}
+
 
 
