@@ -48,6 +48,11 @@ class Model {
 
 	//DEBUT GETTERS//
 		//DEBUT GET UTILISATEUR//
+	/**
+	 * Methode get pour avoir le mot de passe
+	 * @param $identifiant
+	 * @return mixed
+	 */
 	public function getMotDePasse($identifiant){
 		$requette = $this->bd->prepare("SELECT mdp from utilisateur where id_utilisateur = :identifiant");
 		$requette->bindValue('identifiant', $identifiant);
@@ -55,6 +60,11 @@ class Model {
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
 	}
+	/**
+	 * Methode get pour avoir l'idenifiant
+	 * @param $nom
+	 * @return mixed
+	 */
 	public function getIdentifiant($nom){
 		$requette = $this->bd->prepare("SELECT id_utilisateur from utilisateur where nom = :nom");
 		$requette->bindValue('nom', $nom);
@@ -62,6 +72,11 @@ class Model {
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
 	}
+	/**
+	 * Methode get pour avoir le Nom
+	 * @param $identifiant
+	 * @return mixed
+	 */
 	public function getNom($identifiant){
 		$requette = $this->bd->prepare("SELECT nom from utilisateur where id_utilisateur = :identifiant");
 		$requette->bindValue('identifiant', $identifiant);
@@ -69,6 +84,11 @@ class Model {
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
 	}
+	/**
+	 * Methode get pour avoir le Prenom
+	 * @param $identifiant
+	 * @return mixed
+	 */
 	public function getPrenom($identifiant){
 		$requette = $this->bd->prepare("SELECT prenom from utilisateur where id_utilisateur = :identifiant");
 		$requette->bindValue('identifiant', $identifiant);
@@ -76,6 +96,11 @@ class Model {
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
 	}
+	/**
+	 * Methode get pour avoir le mail
+	 * @param $identifiant
+	 * @return mixed
+	 */
 	public function getMail($identifiant){
 		$requette = $this->bd->prepare("SELECT mail from utilisateur where id_utilisateur = :identifiant");
 		$requette->bindValue('identifiant', $identifiant);
@@ -83,6 +108,11 @@ class Model {
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
 	}
+	/**
+	 * Methode get pour avoir le role de l'utilisateur
+	 * @param $identifiant
+	 * @return mixed
+	 */
 	public function getRole($identifiant){
 		$requette = $this->bd->prepare("SELECT role from utilisateur where id_utilisateur = :identifiant");
 		$requette->bindValue('identifiant', $identifiant);
@@ -90,6 +120,11 @@ class Model {
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
 	}
+	/**
+	 * Methode get pour avoir la date de création de compte
+	 * @param $identifiant
+	 * @return mixed
+	 */
 	public function getDateCreation($identifiant){
 		$requette = $this->bd->prepare("SELECT date_creation from utilisateur where id_utilisateur = :identifiant");
 		$requette->bindValue('identifiant', $identifiant);
@@ -97,6 +132,11 @@ class Model {
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
 	}
+	/**
+	 * Methode get pour avoir la date de connexion
+	 * @param $identifiant
+	 * @return mixed
+	 */
 	public function getDateConnexion($identifiant){
 		$requette = $this->bd->prepare("SELECT date_connexion from utilisateur where id_utilisateur = :identifiant");
 		$requette->bindValue('identifiant', $identifiant);
@@ -104,6 +144,11 @@ class Model {
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
 	}
+	/**
+	 * Methode get pour avoir les points de fidelité
+	 * @param $identifiant
+	 * @return mixed
+	 */
 	public function getPointsFid($identifiant){
 		$requette = $this->bd->prepare("SELECT point_fid from utilisateur where id_utilisateur = :identifiant");
 		$requette->bindValue('identifiant', $identifiant);
@@ -114,6 +159,11 @@ class Model {
 		//FIN GET UTILISATEUR//
 
 		//DEBUT GET ARTICLE//
+	/**
+	 * Methode get pour avoir le nom de l'article
+	 * @param $idArticle
+	 * @return mixed
+	 */
 	public function getNomArticle($idArticle){
 		$requette = $this->bd->prepare("SELECT nom_article from article where id_article = :identifiant");
 		$requette->bindValue('identifiant', $idArticle);
@@ -121,6 +171,11 @@ class Model {
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
 	}
+	/**
+	 * Methode get pour avoir le prix de l'article
+	 * @param $idArticle
+	 * @return mixed
+	 */
 	public function getPrix($idArticle){
 		$requette = $this->bd->prepare("SELECT prix from article where id_article = :identifiant");
 		$requette->bindValue('identifiant', $idArticle);
@@ -128,6 +183,11 @@ class Model {
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
 	}
+	/**
+	 * Methode get pour avoir la catégorie d'un article
+	 * @param $idArticle
+	 * @return mixed
+	 */
 	public function getCategorie($idArticle){
 		$requette = $this->bd->prepare("SELECT categorie from article where id_article = :identifiant");
 		$requette->bindValue('identifiant', $idArticle);
@@ -135,6 +195,11 @@ class Model {
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
 	}
+	/**
+	 * Methode get pour avoir les informations sur un article
+	 * @param $idArticle
+	 * @return mixed
+	 */
 	public function getInfo($idArticle){
 		$requette = $this->bd->prepare("SELECT informations from article where id_article = :identifiant");
 		$requette->bindValue('identifiant', $idArticle);
@@ -142,6 +207,12 @@ class Model {
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
 	}
+	/**
+	 * Methode get pour avoir le nombre d'articles
+	 * Simmilaire à la méthode Consulter inventaire (à choisir)
+	 * @param $idArticle
+	 * @return mixed
+	 */
 	public function getNbArticle($idArticle){
 		$requette = $this->bd->prepare("SELECT nb_article from article where id_article = :identifiant");
 		$requette->bindValue('identifiant', $idArticle);
@@ -151,7 +222,142 @@ class Model {
 	}
 		//FIN GET ARTICLE//
 
+		//DEBUT GET HISTORIQUE//
+	/**
+	 * Methode get pour avoir l'identifiant de l'utilisateur
+	 * @param $idArticle
+	 * @return mixed
+	 */
+	public function getIdUtilisateur($idArticle){
+		$requette = $this->bd->prepare("SELECT id_utilisateur from historique_commande_util where id_article = :identifiant");
+		$requette->bindValue('identifiant', $idArticle);
+		$requette->execute();
+		$tableau = $requette->fetch(PDO::FETCH_NUM);
+		return $tableau[0];
+	}
+	/**
+	 * Methode get pour avoir la date de l'achat
+	 * @param $idArticle
+	 * @return mixed
+	 */
+	public function getDateAchat($idArticle){
+		$requette = $this->bd->prepare("SELECT date_achat from historique_commande_util where id_article = :identifiant");
+		$requette->bindValue('identifiant', $idArticle);
+		$requette->execute();
+		$tableau = $requette->fetch(PDO::FETCH_NUM);
+		return $tableau[0];
+	}
+	/**
+	 * Methode get pour avoir l'heure de l'achat
+	 * @param $idArticle
+	 * @return mixed
+	 */
+	public function getHeureAchat($idArticle){
+		$requette = $this->bd->prepare("SELECT heure_achat from historique_commande_util where id_article = :identifiant");
+		$requette->bindValue('identifiant', $idArticle);
+		$requette->execute();
+		$tableau = $requette->fetch(PDO::FETCH_NUM);
+		return $tableau[0];
+	}
+	/**
+	 * Methode get pour avoir le mode de payement
+	 * @param $idArticle
+	 * @return mixed
+	 */
+	public function getMoyenPayement($idArticle){
+		$requette = $this->bd->prepare("SELECT moyen_payement from historique_commande_util where id_article = :identifiant");
+		$requette->bindValue('identifiant', $idArticle);
+		$requette->execute();
+		$tableau = $requette->fetch(PDO::FETCH_NUM);
+		return $tableau[0];
+	}
+		//FIN GET HISTORIQUE//
 	// FIN DES GETTERS//
+
+
+	// DEBUT DES SETTERS//
+		//SET POUR UTILISATEUR//
+	public function setNom($identifiant, $nom){
+		$requette = $this->bd->prepare("UPDATE utilisateur SET nom = :nom where id_utilisateur = :identifiant");
+		$requette->execute(array(
+			'nom' => $nom ,
+			'identifiant' => $identifiant
+		));
+
+	}
+	public function setPrenom($identifiant, $prenom){
+		$requette = $this->bd->prepare("UPDATE utilisateur SET prenom = :prenom where id_utilisateur = :identifiant");
+		$requette->execute(array(
+			'prenom' => $prenom ,
+			'identifiant' => $identifiant
+		));
+
+	}
+	public function setMail($identifiant, $mail){
+		$requette = $this->bd->prepare("UPDATE utilisateur SET mail = :mail where id_utilisateur = :identifiant");
+		$requette->execute(array(
+			'mail' => $mail ,
+			'identifiant' => $identifiant
+		));
+
+	}
+	public function setRole($identifiant, $role){
+		$requette = $this->bd->prepare("UPDATE utilisateur SET role = :role where id_utilisateur = :identifiant");
+		$requette->execute(array(
+			'role' => $role ,
+			'identifiant' => $identifiant
+		));
+	}
+	public function setDateConnexion($identifiant, $date){
+		$requette = $this->bd->prepare("UPDATE utilisateur SET date_connexion = :date where id_utilisateur = :identifiant");
+		$requette->execute(array(
+			'date' => $date ,
+			'identifiant' => $identifiant
+		));
+
+	}
+	public function setPointsFid($identifiant, $points){
+		$requette = $this->bd->prepare("UPDATE utilisateur SET point_fid = :points where id_utilisateur = :identifiant");
+		$requette->execute(array(
+			'points' => $points ,
+			'identifiant' => $identifiant
+		));
+
+	}
+		//FIN DES SET UTILISATEUR//
+	//DEBUT SET ARTICLE//
+	public function setNomArticle($identifiant, $nom){
+		$requette = $this->bd->prepare("UPDATE article SET nom_article = :nom where id_article = :identifiant");
+		$requette->execute(array(
+			'nom' => $nom ,
+			'identifiant' => $identifiant
+		));
+
+	}
+	public function setPrix($identifiant, $prix){
+		$requette = $this->bd->prepare("UPDATE article SET prix = $prix where id_article = :identifiant");
+		$requette->bindValue("identifiant", $identifiant);
+		$requette->execute();
+	}
+	public function setCategorie($identifiant, $categorie){
+		$requette = $this->bd->prepare("UPDATE article SET categorie = $categorie where id_article = :identifiant");
+		$requette->bindValue("identifiant", $identifiant);
+		$requette->execute();
+	}
+	public function setInformations($identifiant, $info){
+		$requette = $this->bd->prepare("UPDATE article SET informations = $info where id_article = :identifiant");
+		$requette->bindValue("identifiant", $identifiant);
+		$requette->execute();
+	}
+	public function setNbArticle($identifiant, $nbArticle){
+		$requette = $this->bd->prepare("UPDATE article SET informations = $nbArticle where id_article = :identifiant");
+		$requette->bindValue("identifiant", $identifiant);
+		$requette->execute();
+	}
+	// FIN DE SETTERS //
+
+	//l'historique n'est pas modifiable//
+
 	public function consulterInventaire(){
 		$requette = $this->bd->prepare("SELECT * from article");
 		$requette->execute();
@@ -198,49 +404,69 @@ class Model {
 	}
 
 	public function consulerPariteAchat(){
-		$requette = $this->bd->prepare("SELECT * from historique_commande order by heure_achat,date_achat DESC LIMIT 20 ");
+		$requette = $this->bd->prepare("SELECT * from historique_commande_util order by heure_achat,date_achat DESC LIMIT 20 ");
   		$requette->execute();
   		return $requette->fetchall();
 	}
 
 	/**
-	 * Fonction a refaire
-	 * TODO
-	 * @param $article
-	 * @return void
+	 * Methode permettant de verifier si un article est en stock en fonction de son ID
+	 * TODO fonction à verifier
+	 * @param $idArticle
+	 * @return boolean
 	 */
-	public function estEnStock($article){
-		$reqette = $this->bd->prepare("SELECT nb_article from article where id_article = :id_article  ");
-		$reqette->bindValue(':id_article',$article);
-  		$reqette->execute();
-  		$tab = $reqette->fetch(PDO::FETCH_NUM);
-		if ($tab[0] > 0){
-			echo '<p>'. " l'article numero " . $article . ' est encore en stock ' . "</p>";
+	public function estEnStock($idArticle){
+		//$reqette = $this->bd->prepare("SELECT nb_article from article where id_article = :id_article  ");
+		//$reqette->bindValue(':id_article',$article);
+  		//$reqette->execute();
+  		//$tab = $reqette->fetch(PDO::FETCH_NUM);
+		//if ($tab[0] > 0){
+		//	echo '<p>'. " l'article numero " . $article . ' est encore en stock ' . "</p>";
+		//}
+		//else{
+		//	echo '<p>'. " l'article numero " . $article . " n'est plus en stock " . "</p>";
+		//}
+		$requette = $this->bd->prepare("SELECT nb_article from article where id_article = :idarticle");
+		$requette->bindValue("idarticle", $idArticle);
+		$requette->execute();
+		$tableau = $requette->fetch(PDO::FETCH_NUM);
+		if ($tableau[0]>0){
+			return true;
+		}elseif ($tableau[0]<=0){
+			return false;
+		}else{
+			return null;
 		}
-		else{
-			echo '<p>'. " l'article numero " . $article . " n'est plus en stock " . "</p>";
-		}
+
 }
 
-
-	public function ajouterArticle($donnee){
-       	$req = $this->bd->prepare("INSERT INTO article(id_article,nom_article,prix,categorie,informations,nb_article) VALUES (:id_article,:nom_article,:prix,:categorie,:informations,:nb_article)");
-       	$marks = ['id_article','nom_article','prix','categorie','informations','nb_article'];
-        	foreach ($marks as $value) {
-            	$req->bindValue(':' . $value, $donnee[$value]);
-        	}
-        	$req->execute();
-        	return (bool) $req->rowCount();
-    	}
-
-	public function ajouterArticle2($id_article,$nom_article,$prix,$informations){
-		$requette = $this->bd->prepare("INSERT INTO article(id_article,nom_article,prix,informations) VALUES (:id_article,:nom_article,:prix,:informations)");
+	/**
+	 * Methode permettant d'ajouter un nouveau article dans la base de données
+	 * TODO faire en sorte dans la base de données que les articles s'incremente tout seul et verifier la fonction
+	 * @param $idArticle
+	 * @param $nomArticle
+	 * @param $prix
+	 * @param $categoeie
+	 * @param $informations
+	 * @param $nbArticle
+	 * @return void
+	 */
+	public function ajouterArticle($idArticle,$nomArticle,$prix,$categoeie, $informations, $nbArticle){
+       	$requette = $this->bd->prepare("INSERT INTO article(id_article,nom_article,prix,categorie,informations,nb_article) VALUES (:id_article,:nom_article,:prix,:categorie,:informations,:nb_article)");
+       	//$marks = ['id_article','nom_article','prix','categorie','informations','nb_article'];
+        //	foreach ($marks as $value) {
+        //    	$req->bindValue(':' . $value, $donnee[$value]);
+        //	}
+        //	$req->execute();
+        //	return (bool) $req->rowCount();
 		$requette->execute(array(
-			'id_article' => $id_article,
-			'nom_article' => $nom_article,
-			'prix' => $prix,
-			'informations' => $informations));}
-
+			'id_article' => $idArticle ,
+			'nom_article' => $nomArticle ,
+			'prix' => $prix ,
+			'categorie' => $categoeie,
+			'informations' => $informations,
+			'nb_article' => $nbArticle));
+    	}
 
 	public function reduction(){
     	return null;
@@ -283,34 +509,45 @@ class Model {
 			'pointsFidel' => $pf));
 	}
 
-	public function infoCompte($id_utilisateur){
-    	$requette = $this->bd->prepare("SELECT * from client where id_utilisateur = :id_utilisateur");
-		$requette->bindValue(':id_utilisateur',$id_utilisateur);
-    	$requette->execute();
-    	return $requette->fetchall();
-	}
-
+	/**
+	 * Methode permettant de supprimer un compte
+	 * @param $identifiant
+	 * @return void
+	 */
 	public function supprimerCompte($identifiant){
     	$requette = $this->bd->prepare("DELETE FROM utilisateur where id_utilisateur=:identifiant");
 		$requette->bindValue('identifiant', $identifiant);
 		$requette->execute();
 	}
 
-	public function supprimerArticle($article){
-    	return null;
+	/**
+	 * Methode permettant de supprimer un article de la base de données
+	 * @param $idArticle
+	 * @return void
+	 */
+	public function supprimerArticle($idArticle){
+    	$requette = $this->bd->prepare("DELETE FROM article where id_article = :idArticle");
+		$requette->bindValue("idArticle", $idArticle);
+		$requette->execute();
 	}
 
+	/**
+	 * Methode permettant de deleguer le compte administrateur à
+	 * @param $identifiant
+	 * @return void
+	 */
 	public function deleguerCompteAdmin($identifiant){
-    	return null;
+    	$requette = $this->bd->prepare("UPDATE utilisateur SET role = 'administrateur' where id_utilisateur = :identifiant");
+		$requette->bindValue("identifiant", $identifiant);
+		$requette->execute();
 	}
 
 	public function rapprovisionnement($idArticle, $qte){
-    	return null;
+    	$requette = $this->bd->prepare("UPDATE article SET nb_article = :qte");
+		$requette->bindValue("qte", $qte);
+		$requette->execute();
 	}
 
-	public function envoiNotification(){
-    	return null;
-	}
 
 	public function fixerStockBas($idArticle, $minimum){
     	return null;
