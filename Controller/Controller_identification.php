@@ -28,7 +28,12 @@ class Controller_identification extends Controller{
             }
         }
         elseif (isset($_SESSION["connecte"]) && $_SESSION["connecte"]){
-            $this->render("accueil_client" , $data);
+            $identifiant = $_SESSION["identifiant"];
+            if($m->getRole($identifiant) == 'utilisateur'){
+                $this->render("accueil_client", $data);
+            }elseif($m->getRole($identifiant) == 'administrateur') {
+                $this->render("accueil_membre", $data);
+            }
         }
         else {
             $this->render("login", $data);
@@ -57,6 +62,10 @@ class Controller_identification extends Controller{
         }
         else {
             $this->render("signin", $data);
+        }
+
+        if( isset($_GET['logout']) && $_GET['logout'] == 1 ) {
+            session_destroy();
         }
     }
 

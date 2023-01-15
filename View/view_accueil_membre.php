@@ -1,4 +1,5 @@
 <?php
+require_once "Model/Model.php";
 require "view_header_membre.php";
 ?>
 
@@ -12,5 +13,8 @@ require "view_header_membre.php";
 </header>
 
 <?php
+if (isset($_GET['logout']) && $_GET['logout'] == 1) {
+    session_destroy();
+}
 require "view_end.php";
 ?>

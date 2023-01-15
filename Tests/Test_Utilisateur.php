@@ -1,7 +1,7 @@
 <?php
 require_once "../Model/Model.php";
 $m = Model::getModel();
-$id = 30051017;
+$id = 12103748;
 $role = $m->getRole($id);
 $mail = $m->getMail($id);
 $nom = $m->getNom($id);
@@ -31,6 +31,8 @@ $mdp = $m->getMotDePasse($id)
         <label>Nouveau Point de fidelité : <input type="number" name="points"></label><br>
         <input type="submit">
     </form>
+
+
 </body>
 <?php
 $m->setNom($id, $_GET["nom"]);
@@ -39,3 +41,5 @@ $m->setMail($id, $_GET["mail"]);
 $m->setRole($id, $_GET["role"]);
 $m->setPointsFid($id, $_GET["points"]);
     ?>
+
+
