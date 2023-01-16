@@ -7,9 +7,9 @@ class Model {
 	 * Methode terminée, ne pas modifier
 	 */
 	private function __construct(){
-    	$this->bd = new PDO("pgsql:host=51.77.214.196;dbname=ubuntu", "ubuntu", "Andromeda");
-    	$this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    	$this->bd->query("SET nameS 'utf8'");
+		$this->bd = new PDO("pgsql:host=aquabdd;dbname=etudiants", "12100253", "090896912EC");
+		$this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$this->bd->query("SET nameS 'utf8'");
 	}
 
 	/**
@@ -17,18 +17,18 @@ class Model {
 	 * @return Model|null
 	 */
 	public static function getModel(){
-    	if (self::$instance == null){
-        	self::$instance = new self();
-    	}
-    	return self::$instance;
+		if (self::$instance == null){
+			self::$instance = new self();
+		}
+		return self::$instance;
 	}
 
 	/**
 	 * Methode terminée, en phase de test, à ne pas modifier
- 	* cette fonction permet de verifier si le compte est dans la base de données
- 	* paramêtres : identifiant et mot de passe
- 	* return bool
- 	*/
+	 * cette fonction permet de verifier si le compte est dans la base de données
+	 * paramêtres : identifiant et mot de passe
+	 * return bool
+	 */
 	//public function connexion($identifiant, $motDePasse){
 	//	$reqette = $this->bd->prepare("SELECT id_utilisateur, mdp from utilisateur where identifiant = ':identifiant'");
 	//	$reqette->bindValue(':identifiant', $identifiant);
@@ -47,7 +47,7 @@ class Model {
 
 
 	//DEBUT GETTERS//
-		//DEBUT GET UTILISATEUR//
+	//DEBUT GET UTILISATEUR//
 	/**
 	 * Methode get pour avoir le mot de passe
 	 * @param $identifiant
@@ -156,9 +156,9 @@ class Model {
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
 	}
-		//FIN GET UTILISATEUR//
+	//FIN GET UTILISATEUR//
 
-		//DEBUT GET ARTICLE//
+	//DEBUT GET ARTICLE//
 	/**
 	 * Methode get pour avoir le nom de l'article
 	 * @param $idArticle
@@ -220,9 +220,9 @@ class Model {
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
 	}
-		//FIN GET ARTICLE//
+	//FIN GET ARTICLE//
 
-		//DEBUT GET HISTORIQUE//
+	//DEBUT GET HISTORIQUE//
 	/**
 	 * Methode get pour avoir l'identifiant de l'utilisateur
 	 * @param $idArticle
@@ -271,12 +271,12 @@ class Model {
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
 	}
-		//FIN GET HISTORIQUE//
+	//FIN GET HISTORIQUE//
 	// FIN DES GETTERS//
 
 
 	// DEBUT DES SETTERS//
-		//SET POUR UTILISATEUR//
+	//SET POUR UTILISATEUR//
 	public function setNom($identifiant, $nom){
 		$requette = $this->bd->prepare("UPDATE utilisateur SET nom = :nom where id_utilisateur = :identifiant");
 		$requette->execute(array(
@@ -324,7 +324,7 @@ class Model {
 		));
 
 	}
-		//FIN DES SET UTILISATEUR//
+	//FIN DES SET UTILISATEUR//
 	//DEBUT SET ARTICLE//
 	public function setNomArticle($identifiant, $nom){
 		$requette = $this->bd->prepare("UPDATE article SET nom_article = :nom where id_article = :identifiant");
@@ -335,25 +335,31 @@ class Model {
 
 	}
 	public function setPrix($identifiant, $prix){
-		$requette = $this->bd->prepare("UPDATE article SET prix = $prix where id_article = :identifiant");
-		$requette->bindValue("identifiant", $identifiant);
-		$requette->execute();
+		$requette = $this->bd->prepare("UPDATE article SET prix = :prix where id_article = :identifiant");
+		$requette->execute(array(
+			'prix' => $prix ,
+			'identifiant' => $identifiant));
 	}
 	public function setCategorie($identifiant, $categorie){
-		$requette = $this->bd->prepare("UPDATE article SET categorie = $categorie where id_article = :identifiant");
-		$requette->bindValue("identifiant", $identifiant);
-		$requette->execute();
+		$requette = $this->bd->prepare("UPDATE article SET categorie = :categorie where id_article = :identifiant");
+		$requette->execute(array(
+			'categorie' => $categorie ,
+			'identifiant' => $identifiant));
+
 	}
 	public function setInformations($identifiant, $info){
-		$requette = $this->bd->prepare("UPDATE article SET informations = $info where id_article = :identifiant");
-		$requette->bindValue("identifiant", $identifiant);
-		$requette->execute();
+		$requette = $this->bd->prepare("UPDATE article SET informations = :info where id_article = :identifiant");
+		$requette->execute(array(
+			'info' => $info ,
+			'identifiant' => $identifiant));
 	}
 	public function setNbArticle($identifiant, $nbArticle){
-		$requette = $this->bd->prepare("UPDATE article SET informations = $nbArticle where id_article = :identifiant");
-		$requette->bindValue("identifiant", $identifiant);
-		$requette->execute();
+		$requette = $this->bd->prepare("UPDATE article SET informations = :nbArticle where id_article = :identifiant");
+		$requette->execute(array(
+			'nbArticle' => $nbArticle ,
+			'identifiant' => $identifiant));
 	}
+
 	// FIN DE SETTERS //
 
 	//l'historique n'est pas modifiable//
@@ -368,29 +374,29 @@ class Model {
 	 * @return mixed
 	 */
 	public function calculAchat(){
-  		$reqette = $this->bd->prepare("SELECT SUM(prix) from article  ");
-  		$reqette->execute();
-  		$tab = $reqette->fetch(PDO::FETCH_NUM);
-  		return $tab['0'];
-  	}
+		$reqette = $this->bd->prepare("SELECT SUM(prix) from article  ");
+		$reqette->execute();
+		$tab = $reqette->fetch(PDO::FETCH_NUM);
+		return $tab['0'];
+	}
 
 	public function enregistrementAchats($achats) {
-    	// Préparez la requête d'insertion
-    	//$stmt = $conn->prepare("INSERT INTO achats (nom, prix, quantite, date) VALUES ($_GET['nom'], $_GET['nom'], $_GET['nom'], $_GET['nom'])");
-    	//$stmt->bind_param("sdss", $nom, $prix, $quantite, $date);
+		// Préparez la requête d'insertion
+		//$stmt = $conn->prepare("INSERT INTO achats (nom, prix, quantite, date) VALUES ($_GET['nom'], $_GET['nom'], $_GET['nom'], $_GET['nom'])");
+		//$stmt->bind_param("sdss", $nom, $prix, $quantite, $date);
 
-    	// Affectez les valeurs aux paramètres
-    	//$nom = $achats->nom;
-    	//$prix = $achats->prix;
-    	//$quantite = $achats->quantite;
-    	//$date = $achats->date;
+		// Affectez les valeurs aux paramètres
+		//$nom = $achats->nom;
+		//$prix = $achats->prix;
+		//$quantite = $achats->quantite;
+		//$date = $achats->date;
 
-    	// Exécutez la requête
-    	//$stmt->execute();
+		// Exécutez la requête
+		//$stmt->execute();
 
-    	// Fermez la connexion à la base de données
-    	//$conn->close();
-}
+		// Fermez la connexion à la base de données
+		//$conn->close();
+	}
 
 	public function maxAchat(){
 		return null;
@@ -405,8 +411,8 @@ class Model {
 
 	public function consulerPariteAchat(){
 		$requette = $this->bd->prepare("SELECT * from historique_commande_util order by heure_achat,date_achat DESC LIMIT 20 ");
-  		$requette->execute();
-  		return $requette->fetchall();
+		$requette->execute();
+		return $requette->fetchall();
 	}
 
 	/**
@@ -418,8 +424,8 @@ class Model {
 	public function estEnStock($idArticle){
 		//$reqette = $this->bd->prepare("SELECT nb_article from article where id_article = :id_article  ");
 		//$reqette->bindValue(':id_article',$article);
-  		//$reqette->execute();
-  		//$tab = $reqette->fetch(PDO::FETCH_NUM);
+		//$reqette->execute();
+		//$tab = $reqette->fetch(PDO::FETCH_NUM);
 		//if ($tab[0] > 0){
 		//	echo '<p>'. " l'article numero " . $article . ' est encore en stock ' . "</p>";
 		//}
@@ -438,7 +444,7 @@ class Model {
 			return null;
 		}
 
-}
+	}
 
 	/**
 	 * Methode permettant d'ajouter un nouveau article dans la base de données
@@ -452,13 +458,13 @@ class Model {
 	 * @return void
 	 */
 	public function ajouterArticle($idArticle,$nomArticle,$prix,$categoeie, $informations, $nbArticle){
-       	$requette = $this->bd->prepare("INSERT INTO article(id_article,nom_article,prix,categorie,informations,nb_article) VALUES (:id_article,:nom_article,:prix,:categorie,:informations,:nb_article)");
-       	//$marks = ['id_article','nom_article','prix','categorie','informations','nb_article'];
-        //	foreach ($marks as $value) {
-        //    	$req->bindValue(':' . $value, $donnee[$value]);
-        //	}
-        //	$req->execute();
-        //	return (bool) $req->rowCount();
+		$requette = $this->bd->prepare("INSERT INTO article(id_article,nom_article,prix,categorie,informations,nb_article) VALUES (:id_article,:nom_article,:prix,:categorie,:informations,:nb_article)");
+		//$marks = ['id_article','nom_article','prix','categorie','informations','nb_article'];
+		//	foreach ($marks as $value) {
+		//    	$req->bindValue(':' . $value, $donnee[$value]);
+		//	}
+		//	$req->execute();
+		//	return (bool) $req->rowCount();
 		$requette->execute(array(
 			'id_article' => $idArticle ,
 			'nom_article' => $nomArticle ,
@@ -466,17 +472,17 @@ class Model {
 			'categorie' => $categoeie,
 			'informations' => $informations,
 			'nb_article' => $nbArticle));
-    	}
+	}
 
 	public function reduction(){
-    	return null;
+		return null;
 	}
 
 	public function ajouterCompte($identifiant, $nom, $prenom, $mail, $motDePasse, $pf = 5){
-    	$requette = $this->bd->prepare("INSERT INTO utilisateur(id_utilisateur, nom, prenom, mail, mdp, role, point_fid ) VALUES (:identifiant , :nom , :prenom, :mail, :motDePasse, :role, :pointsFidel)");
-    	$role = 'utilisateur';
-    	$motDePasseHash = crypt($motDePasse, 'md5');
-    	$requette->execute(array(
+		$requette = $this->bd->prepare("INSERT INTO utilisateur(id_utilisateur, nom, prenom, mail, mdp, role, point_fid ) VALUES (:identifiant , :nom , :prenom, :mail, :motDePasse, :role, :pointsFidel)");
+		$role = 'utilisateur';
+		$motDePasseHash = crypt($motDePasse, 'md5');
+		$requette->execute(array(
 			'identifiant' => $identifiant ,
 			'nom' => $nom ,
 			'prenom' => $prenom ,
@@ -496,16 +502,16 @@ class Model {
 	 * @return void
 	 */
 	public function ajoutCompteAdministrateur($identifiant, $nom, $prenom, $mail, $motDePasse, $pf = 5){
-    	$role = 'administrateur';
-    	$motDePasseHash = crypt($motDePasse, 'md5');
-    	$requette = $this->bd->prepare("INSERT INTO utilisateur(id_utilisateur, nom, prenom, mail, mdp, role, point_fid ) VALUES (:identifiant , :nom , :prenom, :mail, :motDePasse, :role, :pointsFidel)");
-    	$requette->execute(array(
-        	'identifiant' => $identifiant ,
-        	'nom' => $nom ,
-        	'prenom' => $prenom ,
-        	'mail' => $mail,
-        	'motDePasse' => $motDePasseHash,
-        	'role' => $role,
+		$role = 'administrateur';
+		$motDePasseHash = crypt($motDePasse, 'md5');
+		$requette = $this->bd->prepare("INSERT INTO utilisateur(id_utilisateur, nom, prenom, mail, mdp, role, point_fid ) VALUES (:identifiant , :nom , :prenom, :mail, :motDePasse, :role, :pointsFidel)");
+		$requette->execute(array(
+			'identifiant' => $identifiant ,
+			'nom' => $nom ,
+			'prenom' => $prenom ,
+			'mail' => $mail,
+			'motDePasse' => $motDePasseHash,
+			'role' => $role,
 			'pointsFidel' => $pf));
 	}
 
@@ -515,7 +521,7 @@ class Model {
 	 * @return void
 	 */
 	public function supprimerCompte($identifiant){
-    	$requette = $this->bd->prepare("DELETE FROM utilisateur where id_utilisateur=:identifiant");
+		$requette = $this->bd->prepare("DELETE FROM utilisateur where id_utilisateur=:identifiant");
 		$requette->bindValue('identifiant', $identifiant);
 		$requette->execute();
 	}
@@ -526,7 +532,7 @@ class Model {
 	 * @return void
 	 */
 	public function supprimerArticle($idArticle){
-    	$requette = $this->bd->prepare("DELETE FROM article where id_article = :idArticle");
+		$requette = $this->bd->prepare("DELETE FROM article where id_article = :idArticle");
 		$requette->bindValue("idArticle", $idArticle);
 		$requette->execute();
 	}
@@ -537,20 +543,20 @@ class Model {
 	 * @return void
 	 */
 	public function deleguerCompteAdmin($identifiant){
-    	$requette = $this->bd->prepare("UPDATE utilisateur SET role = 'administrateur' where id_utilisateur = :identifiant");
+		$requette = $this->bd->prepare("UPDATE utilisateur SET role = 'administrateur' where id_utilisateur = :identifiant");
 		$requette->bindValue("identifiant", $identifiant);
 		$requette->execute();
 	}
 
 	public function rapprovisionnement($idArticle, $qte){
-    	$requette = $this->bd->prepare("UPDATE article SET nb_article = :qte");
+		$requette = $this->bd->prepare("UPDATE article SET nb_article = :qte");
 		$requette->bindValue("qte", $qte);
 		$requette->execute();
 	}
 
 
 	public function fixerStockBas($idArticle, $minimum){
-    	return null;
+		return null;
 	}
 }
 ?>
