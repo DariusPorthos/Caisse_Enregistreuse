@@ -23,44 +23,19 @@ $prenom = $m->getPrenom($id);
     <label>Id de l'article à modifier : <input type="text" name="ida"></label><br>
     <label>Nouveau nom de l'article: <input type="text" name="nom"></label><br>
     <label>Nouveau prix : <input type="text" name="prix"></label><br>
-    <label>Nouvelles infos :<br> <textarea id="msg" name="info"></textarea> </label><br>
-     <!--<legend>Modifier la categorie:</legend>
-
-        <div>
-            <input type="radio" id="eau" name="cate" value="eau" checked>
-            <label for="eau">Eau</label>
-        </div>
-
-        <div>
-            <input type="radio" id="eau" name="cate" value="sirop">
-            <label for="sirop">Sirop</label>
-        </div>
-
-        <div>
-            <input type="radio" id="soda" name="cate" value="soda">
-            <label for="soda">Soda</label>
-        </div>
-
-
-        <div>
-            <input type="radio" id="boisson" name="cate" value="boisson">
-            <label for="boisson">Boisson</label>
-        </div>
-
-        <div>
-            <input type="radio" id="snack" name="cate" value="snack">
-            <label for="snack">Snack</label>
-        </div> --!>
+    <label>Nouvelles infos :<br> <textarea  name="info"></textarea> </label><br>
 
     <label for="pet-select">Nouvelle catégorie :</label>
     <br>
     <br>
-    <select name="cate" id="pet-select">
+    <select name="cate">
         <option value="">- Choisissez une catégorie -</option>
         <option value="snack">Snack</option>
         <option value="boisson">Boisson</option>
     </select>
     <br>
+    <br>
+    <label>Nouveau Stock : <input type="number" name="stock" min="1" max="10000"></label>
     <br>
     <input type="submit">
 </form>
@@ -73,4 +48,5 @@ $m->setNomArticle($_GET["ida"], $_GET["nom"]);
 $m->setPrix($_GET["ida"], $_GET["prix"]);
 $m->setCategorie($_GET["ida"], $_GET["cate"]);
 $m->setInformations($_GET["ida"], $_GET["info"]);
+$m->setNbArticle($_GET["ida"], $_GET["stock"]);
 ?>
