@@ -1,13 +1,16 @@
-let b=document.querySelectorAll("#abc");
+let ajouter=document.querySelectorAll("#abc");
 let valider= document.getElementById('payer')
 let panier=document.querySelector('.panier');
+let annuler=document.getElementById('vider');
+let liste_achat=[];
+
 
 
 
 /*------------------------------------EVENT---------------------------------------*/
 
-for(let i=0;i<b.length;i++){
-    b[i].addEventListener('click',function (){
+for(let i=0;i<ajouter.length;i++){
+    ajouter[i].addEventListener('click',function (){
         let p=document.querySelectorAll(".prix_prod");
         let prix=p[i].textContent;
         let n=document.querySelectorAll(".nom_prod");
@@ -20,12 +23,18 @@ for(let i=0;i<b.length;i++){
 }
 
 valider.addEventListener('click',function (){
-    let liste=document.querySelectorAll('.elt');
-    for (let i=0;i<liste.length;i++){
-        liste[i].remove();
+    reinitialiser();
+    console.log(liste_achat.length);
+    let liste_nom=document.querySelectorAll('.nom');
+    for (let i=0;i<liste_nom.length;i++){
+        liste_achat.push(liste_nom[i]);
     }
+    vider();
     let inserer=document.querySelector(".inserer");
-    inserer.textContent="";
+    inserer.textContent="0";
+    let point=document.querySelector("#r");
+    point.value=0;
+    console.log(liste_achat.length);
 
 });
 
@@ -38,13 +47,18 @@ panier.addEventListener('click',function(e){
 })
 
 
+annuler.addEventListener('click',function (){
+    vider();
+    calcul_total();
+})
+
 
 /* ---------------------------------FONCTIONS------------------------------------------------*/
-
 function ajouter_article(nom_article,prix_article,quantite_article){
     let div=document.createElement('div');
     div.className="elt";
     let p_article=document.createElement('p');
+    p_article.className="nom";
     let p_prix=document.createElement('p');
     p_prix.className="p_ticket";
     let p_quantite=document.createElement('p');
@@ -76,6 +90,19 @@ function calcul_total(){
     }
     let inserer=document.querySelector(".inserer");
     inserer.textContent=Math.round(res * 100) / 100;
+}
+
+function reinitialiser(){
+    for(let i=liste_achat.length;i>0;i=i-1){
+        liste_achat.pop();
+    }
+}
+
+function vider(){
+    let p=document.querySelectorAll('.elt');
+    for (let i=0;i<p.length;i++){
+        p[i].remove();
+    }
 }
 
 

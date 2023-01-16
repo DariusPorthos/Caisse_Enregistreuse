@@ -21,6 +21,7 @@
 
     <div class="article">
         <h3 class="categorie" id="boisson">Boissons</h3>
+        <div class="scroll">
 
         <div class="produit">
             <img src="../Content/Images/cristaline.jpg">
@@ -136,8 +137,10 @@
         </div>
 
         <div class="column"><hr></div>
+        </div>
 
         <h3 class="categorie" id="soda"> Soda </h3>
+        <div class="scroll">
 
         <div class="produit">
             <img src="../Content/Images/coca.jpg">
@@ -206,10 +209,12 @@
             <input type="button" id="abc" value="Ajouter au panier"/>
         </div>
 
+
         <div class="column"><hr></div>
+        </div>
 
         <h3 class="categorie" id="sirop">Eau + Sirop</h3>
-
+        <div class="scroll">
         <div class="produit">
             <img src="../Content/Images/fraise.jpg">
             <p class="nom_prod">Fraise - 50cl </p>
@@ -323,9 +328,13 @@
             <input type="button" id="abc" value="Ajouter au panier"/>
         </div>
 
+
         <div class="column"><hr></div>
+        </div>
 
         <h3 class="categorie" id="snack"> Snack </h3>
+
+        <div class="scroll">
 
         <div class="produit">
             <img src="../Content/Images/malabar.jpg">
@@ -459,6 +468,7 @@
         </div>
 
         <div class="column"><hr></div>
+
         <div class="produit">
             <img src="../Content/Images/kinderbueno_white.jpg">
             <p class="nom_prod">Kinder Bueno White </p>
@@ -479,6 +489,7 @@
 
             <input type="button" id="abc" value="Ajouter au panier"/>
         </div>
+        </div>
 
 
 
@@ -495,15 +506,19 @@
             <h3 style="text-align: center">Réduction :</h3><br>
 
             <div class="reduc">
-                <label>Points : </label><input type="number" id="r" value="reduction" name="r" min="0" max="1000"/>
-
+                <label>Points : </label><input type="number" id="r" value="0" name="r" min="0" max="1000" />
             </div>
+            <br/>
+            <hr>
 
             <h3 style="text-align: center">Total</h3><br>
 
             <div class="total">
-                <p class="pt">Prix total :</p><p class="inserer"></p><p>&euro;</p>
+                <p class="pt">Prix total :</p><p class="inserer">0</p><p>&euro;</p>
             </div>
+
+            <br/>
+            <hr>
 
 
 
@@ -517,6 +532,8 @@
 
             <div class="valider">
                 <input type="button" id="payer" value="Valider la commande"/>
+                <input type="button" id="vider" value="Annuler commande"/>
+
             </div>
 
         </div>

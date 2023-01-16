@@ -9,6 +9,7 @@
 body{
     margin: 0;
     background: var(--vert_clair);
+    font-family: Trebuchet MS, sans-serif;
 }
 
 *::selection{
@@ -294,18 +295,33 @@ footer{
 .article{
     margin-top:1%;
     background: var(--bleu);
-    width: 40%;
-    height: max-content;
     border: black 1px solid;
     border-radius:3px;
     box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
     margin-bottom: 1%;
+    width: 50%;
+    height: max-height;
 }
+
+.scroll{
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    border:1px solid black;
+    width: 90%;
+    height: 400px;
+    overflow-y: scroll;
+    scrollbar-color: darkblue white;
+    scrollbar-width: thin;
+    margin-bottom: 2%;
+}
+
 
 .article img{
     background: white;
     width: 20%;
     height: auto;
+
 }
 
 .article .poubelle{
@@ -317,7 +333,7 @@ footer{
 .produit{
     margin-top: 2%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: row;
     align-items: center;
     margin-bottom: 2%;
@@ -343,10 +359,7 @@ footer{
 
 }
 
-.tt{
-    border: black 1px solid;
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;;
-}
+
 
 .panier div{
     display:flex;
@@ -378,7 +391,7 @@ footer{
     width: 30%;
 }
 
-#payer{
+#payer,#vider{
     font-size: 120%;
     color: white;
     background: #041C63;
@@ -391,7 +404,12 @@ footer{
     cursor: pointer;
 }
 
-.supp,#abc{
+.supp,#abc,.valider{
     cursor: pointer;
+}
+
+.produit{
+    margin-right: 2%;
+    margin-left: 2%;
 }
 
