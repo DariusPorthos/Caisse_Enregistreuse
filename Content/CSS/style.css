@@ -5,6 +5,9 @@
     --bleu_fonce: #041C63;
 }
 
+#deco:hover{
+    color: red;
+}
 
 body{
     margin: 0;

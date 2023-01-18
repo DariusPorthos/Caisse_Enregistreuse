@@ -1,17 +1,18 @@
 <?php
 include 'Utils/function.php';
-require_once 'view_header_client.php';
+require_once 'view_header_membre.php';
 ?>
 
     <section class="accueil" id="accueil">
         <div class="historique">
             <table>
                 <tr>
-                    <th>Identifiant</th>
+                    <th>Identifiant Article</th>
                     <th>Article</th>
                     <th>Date d'achat</th>
                     <th>Heure d'achat</th>
                     <th>Moyen de paiement</th>
+                    <th>Identifiant Client</th>
                 </tr>
 
                 <?php foreach ($data as $valeur) : ?>
@@ -21,6 +22,7 @@ require_once 'view_header_client.php';
                         <td> <?= $valeur['date_achat'] ?> </td>
                         <td> <?= $valeur['heure_achat'] ?> </td>
                         <td> <?= $valeur['moyen_payement'] ?> </td>
+                        <td> <?= $valeur['id_utilisateur']?></td>
                     </tr>
                 <?php endforeach ?>
             </table>
