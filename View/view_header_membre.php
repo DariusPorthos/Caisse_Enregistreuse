@@ -42,7 +42,7 @@
                         <a href="">Comptabilité</a>
                         <!-- Sous menu de Comptabilité -->
                         <ul>
-                            <li><a href="">Historique des ventes</a></li>
+                            <li><a href="?controller=historique&action=ventes">Historique des ventes</a></li>
                             <li><a href="">Bilan</a></li>
                         </ul>
                     </li>
@@ -50,7 +50,7 @@
                         <a href="">Gestion des comptes</a>
                     </li>
                     <?php if( isset($_SESSION['connecte']) && $_SESSION['connecte'] !== null ) : ?>
-                        <li id="droite"><a href="?logout=1">Se déconnecter</a></li>
+                        <li id="droite" ><a id="deco" href="?logout=1">Se déconnecter</a></li>
                     <?php endif;?>
                 </ul>
                 <!-- Côté droit de la barre de navigation -->

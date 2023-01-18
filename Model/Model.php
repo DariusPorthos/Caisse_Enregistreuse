@@ -396,13 +396,6 @@ class Model {
 		return null;
 	}
 
-	public function consulterHistorique($id_utilisateur){
-		$requette = $this->bd->prepare("SELECT * from historique_commande_util join utilisateur on  utilisateur.id_utilisateur = :id_utilisateur  ");
-		$requette->bindValue(':id_utilisateur',$id_utilisateur);
-		$requette->execute();
-		return $requette->fetchall(PDO::FETCH_ASSOC);
-	}
-
 	public function consulerPariteAchat(){
 		$requette = $this->bd->prepare("SELECT * from historique_commande_util order by heure_achat,date_achat DESC LIMIT 20 ");
   		$requette->execute();
@@ -548,6 +541,28 @@ class Model {
 		$requette->execute();
 	}
 
+	public function consulterHistorique($id_utilisateur){
+		$requette = $this->bd->prepare("SELECT * from historique_commande_util where id_utilisateur = :id_utilisateur");
+		$requette->bindValue(':id_utilisateur',$id_utilisateur);
+		$requette->execute();
+		return $requette->fetchall();
+	}
+
+	public function consulterHistoriqueVentes(){
+		$requete = $this->bd->prepare("SELECT * FROM  historique_commande_util ORDER BY date_achat DESC");
+		$requete->execute();
+		return $requete->fetchAll();
+	}
+
+	public function consulterBilan(){
+		$requete = $this->bd->prepare("SELECT * FROM article JOIN historique_commande_util ON article.id_article = historique_commande_util.id_article WHERE TO_CHAR(date_achat,'mm,yyyy')=TO_CHAR(CURRENT_DATE,'mm,yyyy') ORDER BY heure_achat DESC;");
+		$requete->execute();
+		return $requete->fetchAll();
+	}
+
+	public function getArticlesParCategorie(){
+		return null;
+	}
 
 	public function fixerStockBas($idArticle, $minimum){
     	return null;
