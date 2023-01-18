@@ -213,13 +213,12 @@ class Model {
 	 * @param $idArticle
 	 * @return mixed
 	 */
-	public function getNbArticle($idArticle){
-		$requette = $this->bd->prepare("SELECT nb_article from article where id_article = :identifiant");
-		$requette->bindValue('identifiant', $idArticle);
-		$requette->execute();
-		$tableau = $requette->fetch(PDO::FETCH_NUM);
-		return $tableau[0];
-	}
+	public function getNbArticle(){
+        $requette = $this->bd->prepare("SELECT Count(*) from article");
+        $requette->execute();
+        $tableau = $requette->fetch(PDO::FETCH_NUM);
+        return $tableau[0];
+    }
 	//FIN GET ARTICLE//
 
 	//DEBUT GET HISTORIQUE//
