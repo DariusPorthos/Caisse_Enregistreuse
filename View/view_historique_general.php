@@ -4,8 +4,8 @@ require_once 'view_header_membre.php';
 ?>
 
     <section class="accueil" id="accueil">
-        <div class="tab_historique">
-            <table>
+        <div >
+            <table class="tab_historique">
                 <tr>
                     <th>Identifiant Article</th>
                     <th>Article</th>
