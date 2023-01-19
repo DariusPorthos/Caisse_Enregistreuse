@@ -83,7 +83,7 @@ header{
     display: none;
     flex-direction: column;
     padding: 5px 5px 1px 5px;
-    border-left: 2px solid var(--bleu_fonce);
+    border-left: 2.5px solid var(--bleu_fonce);
 }
 
 .menuL li:hover ul{
@@ -120,7 +120,7 @@ header{
     min-height: 100vh;
     display: flex;
     align-items:center;
-
+    background: url(../Images/accueil.jpg) no-repeat;
     background-size: cover;
     background-position : center;
     background-attachment: fixed;
@@ -169,114 +169,6 @@ header{
 
 /* ------------- FIN PARTIE HISTORIQUE ------------- */
 
-/* ------------- DEBUT PARTIE COMMANDE ------------- */
-
-.titre{
-    display: flex;
-    justify-content: center;
-}
-
-#titre-panier{
-    text-align: center;
-}
-
-.container1{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-image: linear-gradient(to bottom, rgba(123,234,255,0.8), var(--vert_clair));
-}
-
-.produit img{
-    width: 75px;
-}
-
-.scroll{
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    border:1px solid black;
-    width: 1000px;
-    height: 400px;
-    overflow-y: scroll;
-    scrollbar-color: darkblue white;
-    scrollbar-width: thin;
-    margin-bottom: 2%;
-}
-
-.produit{
-    margin-top: 2%;
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 2%;
-}
-
-.container2{
-    margin-top: 1%;
-    background: var(--bleu);
-    width: 20%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    border: black 1px solid;
-    border-radius: 3px;
-}
-
-.panier div{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    text-align: left;
-}
-
-.total{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.reduc{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.mode{
-    text-align: center;
-    margin-bottom: 4%;
-}
-
-#r{
-    width: 30%;
-}
-
-#payer,#vider{
-    font-size: 120%;
-    color: white;
-    background: #041C63;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    border-radius: 3px;
-    border: white solid 1px;
-    margin-bottom: 2%;
-    cursor: pointer;
-}
-
-.supp,#abc,.valider{
-    cursor: pointer;
-}
-
-.produit{
-    margin-right: 2%;
-    margin-left: 2%;
-}
-
-/*------------------------FIN PARTIE COMMANDE-------------------------*/
-
 /* ------------- DEBUT PARTIE FOOTER ------------- */
 
 img{
@@ -324,7 +216,7 @@ footer{
 
 /* Taille écran */
 
-@media screen{
+@media screen and (max-width: 1300px){
     .contenu-footer{
         display: flex;
         width: 700px;
@@ -345,7 +237,10 @@ footer{
         padding-left: 25%;
         font-size: 4rem;
     }
+
+
 }
+
 @media screen and (max-width: 800px ){
     .contenu-footer{
         width: 320px;
@@ -355,6 +250,11 @@ footer{
 
 /* ------------- FIN PARTIE FOOTER ------------- */
 
+/* ------------- DEBUT PARTIE COMMANDE ------------- */
+
+
+
+/*------------------------FIN PARTIE COMMANDE-------------------------*/
 
 /*-------------------- DEBUT PARTIE LOGIN -------------------- */
 
@@ -379,7 +279,7 @@ footer{
 
 .login_title{
     text-align: center;
-    margin-bottom: 1px;
+    margin-bottom: 0px;
 }
 
 .identification{

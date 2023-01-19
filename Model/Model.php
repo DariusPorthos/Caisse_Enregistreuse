@@ -565,8 +565,10 @@ class Model {
 		return $requete->fetchAll();
 	}
 
-	public function getArticlesParCategorie(){
-		return null;
+	public function getArticles(){
+		$requete = $this->bd->prepare("SELECT * FROM article ORDER BY categorie ASC ");
+		$requete->execute();
+		return $requete->fetchAll();
 	}
 
 	public function fixerStockBas($idArticle, $minimum){
