@@ -25,14 +25,16 @@
                     <li style="padding-bottom: 2.6%">
                         <a href="?controller=historique&action=client">Mes Achats</a>
                     </li>
+                    <li> Mes points : <?= $_SESSION["points"]?> points</li>
                     <?php //if( isset($_SESSION['connecte']) && $_SESSION['connecte'] !== null ) : ?>
-                        <li id="droite"><a href="?logout=1">Se déconnecter</a></li>
+                    <li id="droite"><a href="?logout=1">Se déconnecter</a></li>
                     <?php //endif;?>
+
                 </ul>
                 <!-- Côté droit de la barre de navigation -->
                 <ul class="menuR">
                     <li style="width : 20px"><a href=""><img src="Content/Images/cloche.png"></a></li>
-                    <li style="width : 20px"><a href=""><img src="Content/Images/icone.png"></a></li>
+                    <li style="width : 20px"><a href="?controller=identification&action=compte"><img src="Content/Images/icone.png"></a></li>
                     <li style="width : 20px"><a href=""><img src="Content/Images/drapeau" style="margin-bottom : 25%"></a></li>
                 </ul>
             </ul>

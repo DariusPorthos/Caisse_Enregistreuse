@@ -20,7 +20,7 @@
                 <!-- Côté gauche de la barre de navigation -->
                 <ul class="menuL">
                     <li style="padding-bottom: 2.6%">
-                        <a href="">Accueil</a>
+                        <a href="?controller=accueil&action=membre">Accueil</a>
                     </li>
                     <li>
                         <a href="">Commande</a>

@@ -49,7 +49,7 @@
             <input name="mdp" type="password" style="width: 300px;height: 30px;border-radius: 20px;margin-top: 5px;margin-bottom: 15px;padding: 0 10px 0 20px;font-size: 15px;">
             <br>
             <input type="submit" value="LOGIN" style="padding: 8px;margin: 10px;background-color: var(--bleu);border: 0;border-radius: 20px;width: 200px;"><br>
-            <span style="font-size: 15px;">Pas encore de compte ? <a href="?controller=identification&action=signin">CrÃ©er un compte</a></span>
+            <span style="font-size: 15px;">Pas encore de compte ? <a href="?controller=identification&action=signin">Créer un compte</a></span>
         </form>
     </div>
 </section>

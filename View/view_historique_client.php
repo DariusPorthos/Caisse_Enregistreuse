@@ -4,7 +4,7 @@ require_once 'view_header_client.php';
 ?>
 
     <section class="accueil" id="accueil">
-        <div class="historique">
+        <div class="tab_historique">
             <table>
                 <tr>
                     <th>Identifiant</th>

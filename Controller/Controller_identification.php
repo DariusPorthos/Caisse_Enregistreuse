@@ -18,6 +18,7 @@ class Controller_identification extends Controller{
                 $_SESSION["role"]=$m->getRole($identifiant);
                 $_SESSION["date_creation"] = $m->getDateCreation($identifiant);
                 $_SESSION["date_connexion"] = $m->getDateConnexion($identifiant);
+                $_SESSION["points"] = $m->getPointsFid($identifiant);
                 if($m->getRole($identifiant) == 'utilisateur'){
                     $this->render("accueil_client", $data);
                 }elseif($m->getRole($identifiant) == 'administrateur'){
@@ -54,6 +55,7 @@ class Controller_identification extends Controller{
             $_SESSION["role"]=$m->getRole($identifiant);
             $_SESSION["date_creation"] = $m->getDateCreation($identifiant);
             $_SESSION["date_connexion"] = $m->getDateConnexion($identifiant);
+            $_SESSION["points"] = $m->getPointsFid($identifiant);
             //ajouter la date de création
             $this->render("accueil_client", $data);
         }
@@ -67,6 +69,10 @@ class Controller_identification extends Controller{
         if( isset($_GET['logout']) && $_GET['logout'] == 1 ) {
             session_destroy();
         }
+    }
+
+    public function action_compte(){
+        $this->render("mon_compte", $data=false);
     }
 
     public function action_default()

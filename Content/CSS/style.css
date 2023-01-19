@@ -196,12 +196,13 @@ header{
     margin-right: auto;
     align-items: center;
     border:1px solid black;
-    width: 1000px;
-    height: 400px;
+    width: 90vh;
+    height: 600px;
     overflow-y: scroll;
     scrollbar-color: darkblue white;
     scrollbar-width: thin;
     margin-bottom: 2%;
+    background: #6eb6f3;
 }
 
 .produit{
