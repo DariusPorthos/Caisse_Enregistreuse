@@ -12,7 +12,7 @@
     <div class="container">
         <!-- Logo -->
         <div class="logo">
-            <a href=""><img src=".Content/Images/Logo_BDE_noir.png" alt="Logo BDE"></a>
+            <a href=""><img src="Content/Images/Logo_BDE_noir.png" alt="Logo BDE"></a>
         </div>
         <!-- Barre de navigation -->
         <nav>
@@ -20,7 +20,7 @@
                 <!-- Côté gauche de la barre de navigation -->
                 <ul class="menuL">
                     <li style="padding-bottom: 2.6%">
-                        <a href="">Accueil</a>
+                        <a href="?controller=accueil&action=client">Accueil</a>
                     </li>
                     <li>
                         <a href="">Commande</a>
