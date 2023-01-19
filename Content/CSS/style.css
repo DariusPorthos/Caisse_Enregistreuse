@@ -184,7 +184,8 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-image: linear-gradient(to bottom, rgba(123,234,255,0.8), var(--vert_clair));
+    background: linear-gradient(to bottom, rgba(123,234,255,0.8), var(--vert_clair));
+    background-image: url(../Images/accueil.jpg) no-repeat
 }
 
 .produit img{
