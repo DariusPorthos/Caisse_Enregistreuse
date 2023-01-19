@@ -14,8 +14,9 @@
                 <?php foreach($data as $val) : ?>
 
                     <div class="produit">
-
+                        <img src=<?= $val['image'];?> >
                         <p class="nom_prod"> <?= $val['nom_article']; ?> </p>
+                        <p> <?= $val['informations']; ?> </p>
                         <p class="prix_prod"><strong> <?= $val['prix'] ?>€ </strong></p>
 
                         <label for="q">Quantité: </label>
@@ -36,8 +37,6 @@
                 <?php endforeach ?>
 
             </div>
-
-            <!------------------------- FIN TEST SNACK ------------------------->
 
         </div>
 
