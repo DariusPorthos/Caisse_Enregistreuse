@@ -486,18 +486,22 @@ class Model {
 	}
 
 	public function ajouterCompte($identifiant, $nom, $prenom, $mail, $motDePasse, $pf = 5){
-    	$requette = $this->bd->prepare("INSERT INTO utilisateur(id_utilisateur, nom, prenom, mail, mdp, role, point_fid ) VALUES (:identifiant , :nom , :prenom, :mail, :motDePasse, :role, :pointsFidel)");
-    	$role = 'utilisateur';
-    	$motDePasseHash = crypt($motDePasse, 'md5');
-    	$requette->execute(array(
-			'identifiant' => $identifiant ,
-			'nom' => $nom ,
-			'prenom' => $prenom ,
-			'mail' => $mail,
-			'motDePasse' => $motDePasseHash,
-			'role' => $role,
-			'pointsFidel' => $pf));
-	}
+	$requette = $this->bd->prepare("INSERT INTO utilisateur(id_utilisateur, nom, prenom, mail, mdp, role, point_fid, date_creation, date_connexion) VALUES (:identifiant , :nom , :prenom, :mail, :motDePasse, :role, :pointsFidel , :date_creation, :date_connexion)");
+	$role = 'utilisateur';
+	$dcr = date('d-m-y h:i:s');
+	$dco = date('d-m-y h:i:s');
+	$motDePasseHash = crypt($motDePasse, 'md5');
+	     $requette->execute(array(
+	            'identifiant' => $identifiant ,
+	            'nom' => $nom ,
+	            'prenom' => $prenom ,
+	            'mail' => $mail,
+	            'motDePasse' => $motDePasseHash,
+	            'role' => $role,
+	            'pointsFidel' => $pf,
+		    'date_creation' => $dcr,
+		    'date_connexion' => $dco));
+	    }
 
 	/**
 	 * Methode terminée, à ne pas modifier, test reussi !
