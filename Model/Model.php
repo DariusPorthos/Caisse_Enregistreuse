@@ -159,6 +159,16 @@ class Model {
 		//FIN GET UTILISATEUR//
 
 		//DEBUT GET ARTICLE//
+
+	public function getIdArticle($nom)
+	{
+		$requette = $this->bd->prepare("SELECT id_article from article where nom_article = :nom");
+		$requette->bindValue('nom', $nom);
+		$requette->execute();
+		$tableau = $requette->fetch(PDO::FETCH_NUM);
+		return $tableau[0];
+	}
+
 	/**
 	 * Methode get pour avoir le nom de l'article
 	 * @param $idArticle
@@ -444,22 +454,22 @@ class Model {
 	 * @param $nbArticle
 	 * @return void
 	 */
-	public function ajouterArticle($idArticle,$nomArticle,$prix,$categoeie, $informations, $nbArticle){
-       	$requette = $this->bd->prepare("INSERT INTO article(id_article,nom_article,prix,categorie,informations,nb_article) VALUES (:id_article,:nom_article,:prix,:categorie,:informations,:nb_article)");
+	//public function ajouterArticle($idArticle,$nomArticle,$prix,$categoeie, $informations, $nbArticle){
+       	//$requette = $this->bd->prepare("INSERT INTO article(id_article,nom_article,prix,categorie,informations,nb_article) VALUES (:id_article,:nom_article,:prix,:categorie,:informations,:nb_article)");
        	//$marks = ['id_article','nom_article','prix','categorie','informations','nb_article'];
         //	foreach ($marks as $value) {
         //    	$req->bindValue(':' . $value, $donnee[$value]);
         //	}
         //	$req->execute();
         //	return (bool) $req->rowCount();
-		$requette->execute(array(
-			'id_article' => $idArticle ,
-			'nom_article' => $nomArticle ,
-			'prix' => $prix ,
-			'categorie' => $categoeie,
-			'informations' => $informations,
-			'nb_article' => $nbArticle));
-    	}
+		//$requette->execute(array(
+		//	'id_article' => $idArticle ,
+		//	'nom_article' => $nomArticle ,
+		//	'prix' => $prix ,
+		//	'categorie' => $categoeie,
+		//	'informations' => $informations,
+		//	'nb_article' => $nbArticle));
+    	//}
 
 	public function reduction(){
     	return null;
@@ -564,6 +574,41 @@ class Model {
 		$requete = $this->bd->prepare("SELECT * FROM article ORDER BY categorie ASC ");
 		$requete->execute();
 		return $requete->fetchAll();
+	}
+
+	public function actualiserStock($identifiant, $moins){
+		$req = $this->getNbArticle($identifiant);
+		$resu = $req - $moins;
+		$requete = $this->bd->prepare("UPDATE article SET nb_article = :qte");
+		$requete->bindValue("qte" , $resu);
+		$requete->execute();
+	}
+
+	public function ajouterArticle($infos){
+		$requete = $this->bd->prepare("INSERT INTO article (nom_article, prix, informations, categorie,nb_article, id_article) VALUES (:nom_article, :prix, :informations, :categorie, :nb_article, :id_article)");
+		$marqueurs = ['nom_article', 'prix', 'informations', 'categorie','nb_article','id_article'];
+		foreach ($marqueurs as $val){
+			$requete->bindValue(':' .$val, $infos[$val]);
+		}
+		$requete->execute();
+		return (bool) $requete->rowCount();
+	}
+
+	public function getInformationArticle($id_article){
+		$requete = $this->bd->prepare('SELECT * FROM article WHERE id_article = :id_article');
+		$requete->bindValue(':id_article', $id_article);
+		$requete->execute();
+		return $requete->fetch(PDO::FETCH_ASSOC);
+	}
+
+	public function updateArticle($infos){
+		$requete = $this->bd->prepare('UPDATE article SET nom_article=:nom_article, prix=:prix,informations=:informations,categorie=:categorie,nb_article=:nb_article WHERE id_article=:id_article');
+		$marqueurs = ['nom_article', 'prix', 'informations', 'categorie','nb_article','id_article'];
+		foreach ($marqueurs as $val) {
+			$requete->bindValue(':' .$val, $infos[$val]);
+		}
+		$requete->execute();
+		return (bool) $requete->rowCount();
 	}
 
 	public function fixerStockBas($idArticle, $minimum){

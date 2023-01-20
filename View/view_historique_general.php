@@ -4,10 +4,10 @@ require_once 'view_header_membre.php';
 ?>
 
     <section class="accueil" id="accueil">
-        <div class="tab_historique">
-            <table>
+        <div >
+            <table class="tab_historique">
                 <tr>
-                    <th>Identifiant Article</th>
+
                     <th>Article</th>
                     <th>Date d'achat</th>
                     <th>Heure d'achat</th>
@@ -17,7 +17,7 @@ require_once 'view_header_membre.php';
 
                 <?php foreach ($data as $valeur) : ?>
                     <tr>
-                        <td> <?= $valeur['id_article'] ?> </td>
+
                         <td> <?= $valeur['nom_article'] ?> </td>
                         <td> <?= $valeur['date_achat'] ?> </td>
                         <td> <?= $valeur['heure_achat'] ?> </td>
