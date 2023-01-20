@@ -310,6 +310,17 @@ class Model {
 		));
 
 	}
+	
+	public function setMotDePasse($identifiant, $mdp){
+		$requete = $this->bd->prepare("UPDATE utilisateur SET mdp = :mdp where id_utilisateur = :identifiant");
+		$motDePasseHash = crypt($mdp, 'md5');
+		$requete->execute(array(
+			'mdp' => $motDePasseHash ,
+			'identifiant' => $identifiant
+		));	
+		
+		
+	}
 	public function setRole($identifiant, $role){
 		$requette = $this->bd->prepare("UPDATE utilisateur SET role = :role where id_utilisateur = :identifiant");
 		$requette->execute(array(
