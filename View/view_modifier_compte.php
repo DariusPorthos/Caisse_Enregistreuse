@@ -22,9 +22,9 @@
                 <label>Rôle :</label>
                 <select name="role" class="input_form">
                     <option value="<?= $role; ?>">-Choisissez la catégorie-</option>
-                    <option value="admin">Administrateur</option>
+                    <option value="administrateur">Administrateur</option>
                     <option value="super-admin">Super-Administrateur</option>
-                    <option value="client">Client</option>
+                    <option value="utilisateur">Client</option>
                 </select>
                 <br>
 
