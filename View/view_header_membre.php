@@ -34,8 +34,8 @@
                         <a href="">Inventaire</a>
                         <!-- Sous menu de inventaire -->
                         <ul>
-                            <li><a href="">Stock/Réaprovisionnement</a></li>
-                            <li><a href="">Ajout d'article</a></li>
+                            <li><a href="?controller=article&action=stock">Stock/Réaprovisionnement</a></li>
+                            <li><a href="?controller=article&action=formulaire_ajout">Ajout d'article</a></li>
                         </ul>
                     </li>
                     <li>

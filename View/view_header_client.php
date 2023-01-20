@@ -20,7 +20,7 @@
                 <!-- Côté gauche de la barre de navigation -->
                 <ul class="menuL">
                     <li style="padding-bottom: 2.6%">
-                        <a href="?controller=accueil&action=client">Accueil</a>
+                        <a href="?controller=identification&action=login">Accueil</a>
                     </li>
                     <li style="padding-bottom: 2.6%">
                         <a href="?controller=historique&action=client">Mes Achats</a>

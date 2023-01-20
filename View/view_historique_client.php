@@ -7,7 +7,6 @@ require_once 'view_header_client.php';
         <div>
             <table class="tab_historique">
                 <tr>
-                    <th>Identifiant</th>
                     <th>Article</th>
                     <th>Date d'achat</th>
                     <th>Heure d'achat</th>
@@ -16,7 +15,6 @@ require_once 'view_header_client.php';
 
                 <?php foreach ($data as $valeur) : ?>
                     <tr>
-                        <td> <?= $valeur['id_article'] ?> </td>
                         <td> <?= $valeur['nom_article'] ?> </td>
                         <td> <?= $valeur['date_achat'] ?> </td>
                         <td> <?= $valeur['heure_achat'] ?> </td>
