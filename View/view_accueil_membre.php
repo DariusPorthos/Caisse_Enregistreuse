@@ -1,6 +1,7 @@
 <?php
 require_once "Model/Model.php";
 require "view_header_membre.php";
+$m = Model::getModel();
 ?>
 
 </header>
@@ -10,6 +11,7 @@ require "view_header_membre.php";
     </div>
 </section>
 </header>
+
 
 <?php
 if (isset($_GET['logout']) && $_GET['logout'] == 1) {

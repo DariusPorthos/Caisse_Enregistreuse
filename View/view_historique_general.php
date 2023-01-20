@@ -1,5 +1,4 @@
 <?php
-include 'Utils/function.php';
 require_once 'view_header_membre.php';
 ?>
 
@@ -18,11 +17,11 @@ require_once 'view_header_membre.php';
                 <?php foreach ($data as $valeur) : ?>
                     <tr>
 
-                        <td> <?= $valeur['nom_article'] ?> </td>
-                        <td> <?= $valeur['date_achat'] ?> </td>
-                        <td> <?= $valeur['heure_achat'] ?> </td>
-                        <td> <?= $valeur['moyen_payement'] ?> </td>
-                        <td> <?= $valeur['id_utilisateur']?></td>
+                        <td> <?= e($valeur['nom_article']) ?> </td>
+                        <td> <?= e($valeur['date_achat']) ?> </td>
+                        <td> <?= e($valeur['heure_achat']) ?> </td>
+                        <td> <?= e($valeur['moyen_payement']) ?> </td>
+                        <td> <?= e($valeur['id_utilisateur'])?></td>
                     </tr>
                 <?php endforeach ?>
             </table>

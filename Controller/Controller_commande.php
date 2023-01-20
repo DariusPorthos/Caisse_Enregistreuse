@@ -4,14 +4,6 @@ class Controller_commande extends Controller{
     public function action_commande(){
         $m = Model::getModel();
         $data = $m->getArticles();
-        $i = 0;
-        //while ($i<=$_GET['compteur']){
-        //    if (isset($_GET["id"]) && isset($_GET["nom".$i]) && isset($_GET["qte"]) && isset($_GET["compteur"])){
-        //        $ide = $m->getIdArticle($_GET["nom".$i]);
-
-        //    }
-        //}
-
         $this->render("commande", $data);
 
     }
@@ -22,5 +14,7 @@ class Controller_commande extends Controller{
         $this->action_commande();
     }
 }
-
+//if (isset($_GET["id"]) && isset($_GET["nom".$i]) && isset($_GET["qte".$i]) && isset($_GET["compteur"])){
 ?>
+
+

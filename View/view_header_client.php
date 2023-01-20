@@ -25,7 +25,7 @@
                     <li style="padding-bottom: 2.6%">
                         <a href="?controller=historique&action=client">Mes Achats</a>
                     </li>
-                    <li> Mes points : <?= $_SESSION["points"]?> points</li>
+                    <li> Mes points : <?= e($_SESSION["points"])?> points</li>
                     <?php //if( isset($_SESSION['connecte']) && $_SESSION['connecte'] !== null ) : ?>
                     <li id="droite"><a href="?logout=1">Se déconnecter</a></li>
                     <?php //endif;?>

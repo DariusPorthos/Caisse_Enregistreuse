@@ -224,12 +224,21 @@ class Model {
 	 * @return mixed
 	 */
 	public function getNbArticle($idArticle){
-		$requette = $this->bd->prepare("SELECT nb_article from article where id_article = :identifiant");
-		$requette->bindValue('identifiant', $idArticle);
+		$requette = $this->bd->prepare("SELECT COUNT(*) from article");
 		$requette->execute();
 		$tableau = $requette->fetch(PDO::FETCH_NUM);
 		return $tableau[0];
 	}
+
+	public function getStockArticle($idArticle)
+	{
+		$requette = $this->bd->prepare("SELECT nb_article from article where id_article = :id");
+		$requette->bindValue("id", $idArticle);
+		$requette->execute();
+		$tableau = $requette->fetch(PDO::FETCH_NUM);
+		return $tableau[0];
+	}
+
 		//FIN GET ARTICLE//
 
 		//DEBUT GET HISTORIQUE//
@@ -577,11 +586,12 @@ class Model {
 	}
 
 	public function actualiserStock($identifiant, $moins){
-		$req = $this->getNbArticle($identifiant);
-		$resu = $req - $moins;
-		$requete = $this->bd->prepare("UPDATE article SET nb_article = :qte");
-		$requete->bindValue("qte" , $resu);
-		$requete->execute();
+		$req = $this->getStockArticle($identifiant);
+		$resu = (int)$req - (int)$moins;
+		$requete = $this->bd->prepare("UPDATE article SET nb_article = :qte where id_article = :id");
+		$requete->execute(array(
+			'id' => $identifiant ,
+			'qte' => $resu));
 	}
 
 	public function ajouterArticle($infos){
@@ -610,6 +620,38 @@ class Model {
 		$requete->execute();
 		return (bool) $requete->rowCount();
 	}
+
+	public function insertHistorique($id_article, $id_utilisateur, $nom_article){
+		$requete = $this->bd->prepare("INSERT INTO historique_commande_util(id_article, id_utilisateur, nom_article) VALUES (:ida, :idu, :na)");
+		$requete->execute(array(
+			'ida' => $id_article ,
+			'idu' => $id_utilisateur,
+			'na' => $nom_article));
+	}
+
+	public function getInformationCompte($id_utilisateur){
+		$requete = $this->bd->prepare('SELECT * FROM utilisateur WHERE id_utilisateur = :id_utilisateur');
+		$requete->bindValue(':id_utilisateur', $id_utilisateur);
+		$requete->execute();
+		return $requete->fetch(PDO::FETCH_ASSOC);
+	}
+
+	public function getComptes(){
+		$requete =$this->bd->prepare("SELECT * FROM utilisateur;");
+		$requete->execute();
+		return $requete->fetchAll();
+	}
+
+	public function updateCompte($infos){
+		$requete = $this->bd->prepare('UPDATE utilisateur SET nom=:nom,prenom=:prenom,role=:role WHERE id_utilisateur=:id_utilisateur');
+		$marqueurs = ['nom', 'prenom', 'role','id_utilisateur'];
+		foreach ($marqueurs as $val) {
+			$requete->bindValue(':' .$val, $infos[$val]);
+		}
+		$requete->execute();
+		return (bool) $requete->rowCount();
+	}
+
 
 	public function fixerStockBas($idArticle, $minimum){
     	return null;

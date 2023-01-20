@@ -1,4 +1,4 @@
-<?php require_once "view_header_membre.php" ?>
+<?php require_once "view_header_membre.php" ; ?>
 
     <div class="titre">
         <h1>Commande en cours</h1>
@@ -14,10 +14,10 @@
                 <?php foreach($data as $val) : ?>
 
                     <div class="produit">
-                        <img src=<?= $val['image'];?> >
-                        <p class="nom_prod"><?= $val['nom_article'];?></p>
-                        <p> <?= $val['informations']; ?> </p>
-                        <p class="prix_prod"><strong> <?= $val['prix'] ?>€ </strong></p>
+                        <img src=<?= e($val['image']);?> >
+                        <p class="nom_prod"><?= e($val['nom_article']);?></p>
+                        <p> <?= e($val['informations']); ?> </p>
+                        <p class="prix_prod"><strong> <?= e($val['prix'])?>€ </strong></p>
 
                         <label for="q">Quantité: </label>
                         <select id="quantite" name="q" class="qt">
@@ -82,8 +82,9 @@
 
                 </div>
 
+
                 <div class="valider">
-                    <form method="get" action="">
+                    <form method="get" action="?controller=commande">
                         <label>ID Client : </label><input type="text" name="id"/>
 
                         <div class="pan">
@@ -97,7 +98,6 @@
                 </div>
 
             </div>
-
 
         </div>
 
