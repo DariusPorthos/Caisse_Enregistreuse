@@ -47,15 +47,4 @@ $m = Model::getModel();
 
 <?php require 'view_end.php'?>
 
-<?php
-//$id_c = $m->getNbUtilisateur()+1;
-//$identifiant = $_GET["identifiant"];
-//$nom = $_GET["nom"];
-//$prenom = $_GET["prenom"];
-//$mail = $_GET["mail"];
-//$mdp = $_GET["mdp"];
-//$role="client";
-//$date_crea=null;
-//$date_connexion=null;
-//$m->ajouterCompte($id_c,$nom,$prenom,$mail,$mdp,$role,$date_crea,$date_connexion,0);
-?>
+
