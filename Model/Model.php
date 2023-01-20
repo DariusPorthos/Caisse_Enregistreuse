@@ -223,7 +223,7 @@ class Model {
 	 * @param $idArticle
 	 * @return mixed
 	 */
-	public function getNbArticle($idArticle){
+	public function getNbArticle(){
 		$requette = $this->bd->prepare("SELECT COUNT(*) from article");
         	$requette->execute();
         	$tableau = $requette->fetch(PDO::FETCH_NUM);
